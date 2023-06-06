@@ -1,0 +1,72 @@
+[
+    {
+      "image": "course1.jpg",
+      "name": "Basketball Basics",
+      "instructor_name": "John Smith",
+      "available_seats": 15,
+      "price": 99.99
+    },
+    {
+      "image": "course2.jpg",
+      "name": "Soccer Skills",
+      "instructor_name": "Emily Johnson",
+      "available_seats": 10,
+      "price": 89.99
+    },
+    {
+      "image": "course3.jpg",
+      "name": "Tennis Techniques",
+      "instructor_name": "Michael Davis",
+      "available_seats": 12,
+      "price": 79.99
+    },
+    {
+      "image": "course4.jpg",
+      "name": "Swimming Fundamentals",
+      "instructor_name": "Sarah Thompson",
+      "available_seats": 8,
+      "price": 59.99
+    },
+    {
+      "image": "course5.jpg",
+      "name": "Golf for Beginners",
+      "instructor_name": "Robert Anderson",
+      "available_seats": 10,
+      "price": 69.99
+    },
+    {
+      "image": "course6.jpg",
+      "name": "Volleyball Techniques",
+      "instructor_name": "Jessica Lee",
+      "available_seats": 12,
+      "price": 79.99
+    },
+    {
+      "image": "course7.jpg",
+      "name": "Martial Arts Mastery",
+      "instructor_name": "David Wilson",
+      "available_seats": 15,
+      "price": 109.99
+    },
+    {
+      "image": "course8.jpg",
+      "name": "Dance Fusion",
+      "instructor_name": "Sophia Martinez",
+      "available_seats": 12,
+      "price": 79.99
+    },
+    {
+      "image": "course9.jpg",
+      "name": "Track and Field Training",
+      "instructor_name": "Alex Turner",
+      "available_seats": 10,
+      "price": 89.99
+    },
+    {
+      "image": "course10.jpg",
+      "name": "Yoga for Athletes",
+      "instructor_name": "Olivia Thompson",
+      "available_seats": 8,
+      "price": 69.99
+    }
+  ]
