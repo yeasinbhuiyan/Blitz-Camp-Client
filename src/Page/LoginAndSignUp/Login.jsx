@@ -8,9 +8,12 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2';
 
+import useStatus from '../../Hook/useStatus';
+
 
 
 const Login = () => {
+    const {statusRefetch} = useStatus()
 
 
 
@@ -87,7 +90,7 @@ const Login = () => {
 
             .then(result => {
                 console.log(result)
-                const logged = result.user 
+                const logged = result.user
                 const userInfo = { name: logged.displayName, email: logged.email, status: 'student' }
                 fetch('http://localhost:5000/users', {
                     method: 'PUT',
@@ -98,32 +101,27 @@ const Login = () => {
 
                 })
                     .then(res => res.json())
-                    .then(data => {
+                    .then(() => {
+                       
+                        statusRefetch()
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
 
-                        console.log(data)
-                        if (data.acknowledged) {
-
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'Your work has been saved',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-
-                            navigate(from)
+                        navigate(from)
 
 
 
-                        }
+                    }
 
 
-                    })
+                    )
 
             })
-
-            // console.log(logged)
-
 
 
             .catch((error) => {
@@ -187,7 +185,7 @@ const Login = () => {
 
 
                         <p><small>Dont you have Account? <Link state={location.state} className='font-semibold' to='/signUp'>Register</Link></small></p>
-      
+
 
                         <div>
                             <p className='font-semibold text-red-500'><small>{error}</small></p>

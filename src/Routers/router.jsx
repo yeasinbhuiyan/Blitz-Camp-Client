@@ -6,6 +6,7 @@ import SignUp from "../Page/LoginAndSignUp/SignUp";
 import AllClasses from "../Page/AllClasses/AllClasses";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
+import AddClasses from "../Page/Dashboard/InstructorDashboard/AddClasses";
 
 
 const router = createBrowserRouter([
@@ -23,15 +24,21 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
-            },{
+            }, {
                 path: '/allClasses',
-                element : <AllClasses></AllClasses>
+                element: <AllClasses></AllClasses>
             }
         ]
     },
     {
-        path : 'dashboard',
+        path: 'dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: 'add-classes',
+                element: <AddClasses></AddClasses>
+            }
+        ]
     }
 ])
 

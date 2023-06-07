@@ -7,13 +7,19 @@ import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
 import { AuthContext } from '../../AuthProviders/AuthProviders'
 import DashboardLink from './DashboardLink'
+
+import useStatus from '../../Hook/useStatus'
 // import HostMenu from './HostMenu'
 // import GuestMenu from './GuestMenu'
 
 const Sidebar = () => {
     const navigate = useNavigate()
     const [toggle, setToggle] = useState(false)
-    const { user, logOut, status } = useContext(AuthContext)
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const {status} = useStatus()
+    console.log(status)
 
     const [isActive, setActive] = useState('false')
 

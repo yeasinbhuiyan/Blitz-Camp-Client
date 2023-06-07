@@ -1,0 +1,102 @@
+[
+    {
+        "class_name": "Football Training",
+        "class_image": "https://i.ibb.co/yBj17S3/joppe-spaa-Ts-Yzva0e2p-Q-unsplash.jpg",
+        "instructor_name": "Diya Moni",
+        "instructor_email": "diya@gmail.com",
+        "status": "pending",
+        "available_seats": 15,
+        "price": 19.8,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Cricket Training",
+        "class_image": "https://i.ibb.co/1rXn3ZH/alfred-kenneally-Xq-Fe-Vpr-J3j-Q-unsplash.jpg",
+        "instructor_name": "Diya Moni",
+        "instructor_email": "diya@gmail.com",
+        "status": "pending",
+        "available_seats": 20,
+        "price": 22.11,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Table Tennis Lessons",
+        "class_image": "https://i.ibb.co/kSgWj5R/oliver-sjostrom-s-ZKLku0-Yn-FM-unsplash.jpg",
+        "instructor_name": "Diya Moni",
+        "instructor_email": "diya@gmail.com",
+        "status": "pending",
+        "available_seats": 30,
+        "price": 15.11,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Badminton Training",
+        "class_image": "https://i.ibb.co/nMLs2bS/saif71-com-24z-MNig-Ma5-A-unsplash.jpg",
+        "instructor_name": "Alex Karim",
+        "instructor_email": "alex@gmail.com",
+        "status": "pending",
+        "available_seats": 9,
+        "price": 32.11,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Golf Lessons",
+        "class_image": "https://i.ibb.co/Mgr6dK3/andrew-rice-wa-E-CT2q8-Os-unsplash.jpg",
+        "instructor_name": "Alex Karim",
+        "instructor_email": "alex@gmail.com",
+        "status": "pending",
+        "available_seats": 29,
+        "price": 17.23,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Baseball Skills Training",
+        "class_image": "https://i.ibb.co/1292FLF/chris-chow-Bhw-RQr08-Pc-M-unsplash.jpg",
+        "instructor_name": "Alex Karim",
+        "instructor_email": "alex@gmail.com",
+        "status": "pending",
+        "available_seats": 32,
+        "price": 22.10,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Volleyball Training",
+        "class_image": "https://i.ibb.co/cr5Kr5K/jannes-glas-0-Na-QQs-LWLk-A-unsplash.jpg",
+        "instructor_name": "Sakib Ullah",
+        "instructor_email": "sakib@gmail.com",
+        "status": "pending",
+        "available_seats": 12,
+        "price": 18.09,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Swimming Lessons",
+        "class_image": "https://i.ibb.co/ZzppbK8/serena-repice-lentini-TVOAbb-LL050-unsplash.jpg",
+        "instructor_name": "Sakib Ullah",
+        "instructor_email": "sakib@gmail.com",
+        "status": "pending",
+        "available_seats": 33,
+        "price": 23.22,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Basketball Skills Training",
+        "class_image": "https://i.ibb.co/DCW3Sw3/markus-spiske-Bfphc-Cvhl6-E-unsplash.jpg",
+        "instructor_name": "Sakib Ullah",
+        "instructor_email": "sakib@gmail.com",
+        "status": "pending",
+        "available_seats": 32,
+        "price": 32.22,
+        "enrolled": 0
+    },
+    {
+        "class_name": "Athletics Lessons",
+        "class_image": "https://i.ibb.co/pZyDYrg/jonathan-chng-Hgo-Kvt-Kpy-HA-unsplash.jpg",
+        "instructor_name": "Sokina Banu",
+        "instructor_email": "sokina@gmail.com",
+        "status": "pending",
+        "available_seats": 24,
+        "price": 15.06,
+        "enrolled": 0
+    }
+]

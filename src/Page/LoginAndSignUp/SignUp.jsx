@@ -1,12 +1,17 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import { useContext, useState } from 'react';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2';
+import useStatus from '../../Hook/useStatus';
+
 
 
 const SignUp = () => {
 
+    const { statusRefetch } = useStatus()
 
 
 
@@ -55,10 +60,14 @@ const SignUp = () => {
         createAccount(email, password)
             .then(result => {
                 const newAccount = result.user
+
+
+
+                console.log(newAccount)
                 userName(name, img)
 
                     .then(() => {
-                        const userInfo = { name: name, email: email , status : 'student' }
+                        const userInfo = { name: name, email: email, status: 'student' }
                         fetch('http://localhost:5000/users', {
                             method: 'PUT',
                             headers: {
@@ -69,8 +78,15 @@ const SignUp = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                
-                                if (data.insertedId) {
+
+
+
+
+
+                                console.log(data)
+                                if (data.modifiedCount || data.upsertedCount) {
+
+                                    statusRefetch()
 
                                     Swal.fire({
                                         position: 'top-end',
@@ -81,7 +97,7 @@ const SignUp = () => {
                                     })
                                     eventTarget.reset()
                                     navigate(from)
-                                    console.log(newAccount)
+
 
                                 }
 
