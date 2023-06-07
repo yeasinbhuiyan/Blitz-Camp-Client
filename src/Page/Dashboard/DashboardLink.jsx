@@ -7,6 +7,7 @@ import { BiSelectMultiple } from 'react-icons/Bi'
 import { MdOutlineIncompleteCircle, MdPayment } from 'react-icons/Md'
 
 import useStatus from '../../Hook/useStatus'
+import { FaRegNewspaper } from 'react-icons/Fa'
 
 const DashboardLink = () => {
     const {status} = useStatus()
@@ -59,7 +60,7 @@ const DashboardLink = () => {
                                     }`
                                 }
                             >
-                                <BsFingerprint className='w-5 h-5' />
+                                <FaRegNewspaper className='w-5 h-5' />
 
                                 <span className='mx-4 font-medium'>My Classes</span>
                             </NavLink>

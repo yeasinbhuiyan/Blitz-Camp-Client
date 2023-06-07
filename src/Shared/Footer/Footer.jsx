@@ -1,6 +1,6 @@
 
 // import logo from '/logo2.jpeg'
-import { FaArrowRight, FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaArrowRight, FaFacebook, FaGithub, FaGoogle } from 'react-icons/Fa';
 
 
 const Footer = () => {
@@ -44,7 +44,9 @@ const Footer = () => {
                     <span className="text-gray-700 font-bold text-xl">Newsletter</span>
                     <div className='flex items-center'>
                         <input className='p-3 rounded' type="email" name="email" placeholder='Enter Your Email' id="" />
-                        <button className='p-4 btn-success rounded-full'><FaArrowRight></FaArrowRight></button>
+                        <button className='p-4 btn-success rounded-full'>
+                            <FaArrowRight></FaArrowRight>
+                            </button>
                     </div>
                     {/* <hr  className='text-gray'/> */}
                     <div className='gap-4 flex text-2xl mt-5'>

@@ -3,12 +3,13 @@
 import { useContext, useState } from 'react';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/Fa';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2';
 
 import useStatus from '../../Hook/useStatus';
+
 
 
 
@@ -176,7 +177,9 @@ const Login = () => {
                         <div className=' mb-3 '>
                             <div>
 
-                                <button onClick={handleGoogleLogin} className="w-full p-2 items-center border-2 flex hover:bg-cyan-400 text-cyan-400 hover:text-gray-700 border-cyan-300 rounded-full"> <FaGoogle className='mr-2'></FaGoogle> <small>Login With Google</small></button>
+                                <button onClick={handleGoogleLogin} className="w-full p-2 items-center border-2 flex hover:bg-cyan-400 text-cyan-400 hover:text-gray-700 border-cyan-300 rounded-full">
+                                     <FaGoogle className='mr-2'></FaGoogle> 
+                                     <small>Login With Google</small></button>
                             </div>
 
                         </div>
