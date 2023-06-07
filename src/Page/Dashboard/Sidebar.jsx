@@ -2,19 +2,20 @@ import { useContext, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 // import Logo from '../Shared/Navbar/Logo'
+
+
 import { GrLogout } from 'react-icons/gr'
-import { FcSettings } from 'react-icons/fc'
-import { AiOutlineBars } from 'react-icons/ai'
+
+import { AiOutlineBars , AiFillSetting } from 'react-icons/ai'
 import { AuthContext } from '../../AuthProviders/AuthProviders'
 import DashboardLink from './DashboardLink'
 
 import useStatus from '../../Hook/useStatus'
-// import HostMenu from './HostMenu'
-// import GuestMenu from './GuestMenu'
+
 
 const Sidebar = () => {
     const navigate = useNavigate()
-    const [toggle, setToggle] = useState(false)
+    // const [toggle, setToggle] = useState(false)
 
     const { user, logOut } = useContext(AuthContext)
 
@@ -131,7 +132,7 @@ const Sidebar = () => {
                             }`
                         }
                     >
-                        <FcSettings className='w-5 h-5' />
+                        <AiFillSetting className='w-5 h-5' />
 
                         <span className='mx-4 font-medium'>Profile</span>
                     </NavLink>

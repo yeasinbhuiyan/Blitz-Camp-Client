@@ -70,7 +70,11 @@ const AddClasses = () => {
     }
     return (
         <div>
+            <div>
+                <h1 className="text-4xl text-center font-semibold mt-10">Add Class Form</h1>
+            </div>
             <form onSubmit={handleSubmit}>
+                
                 <div className="card-body grid grid-cols-1 md:grid-cols-2  gap-8 p-10">
                     <div className="form-control">
                         <label className="label">
