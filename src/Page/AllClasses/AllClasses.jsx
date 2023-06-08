@@ -10,7 +10,7 @@ const AllClasses = () => {
         fetch('http://localhost:5000/all-classes')
             .then(res => res.json())
             .then(data => {
-                const approvedClass = data.filter(df => df.status === 'pending')
+                const approvedClass = data.filter(df => df.status === 'approve')
                 setClasses(approvedClass)
             })
     }, [])
@@ -22,7 +22,7 @@ const AllClasses = () => {
                 <title>Biltz Camp | All Classes</title>
             </Helmet>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 p-10 gap-8 lg:grid-cols-3 ">
+            <div className="grid grid-cols-1 py-28 md:grid-cols-2 p-10 gap-8 lg:grid-cols-3 ">
                 {
                     classes?.map(singleClass => <ClassesCard key={singleClass._id} singleClass={singleClass}></ClassesCard>)
                 }

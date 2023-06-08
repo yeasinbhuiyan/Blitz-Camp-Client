@@ -121,18 +121,18 @@ const ManageClasses = () => {
                     allClasses && allClasses.map(allClass => <>
                         <div className='my-10'>
                             <div className="card md:card-side bg-base-100 shadow-xl">
-                                <figure><img className='w-96 h-96' src={allClass?.class_image} alt="Movie" /></figure>
+                                <figure><img className='w-96 h-52 md:h-96' src={allClass?.class_image} alt="Movie" /></figure>
 
 
                                 <div className="card-body">
-                                    <h2 className="card-title text-2xl font-semibold">{allClass?.instructor_name}</h2>
-                                    <p className='text-sm font-bold'>{allClass?.instructor_email}</p>
+                                    <h1 className="card-title text-3xl font-semibold">{allClass?.class_name}</h1>
+                                     <p className="card-title text-2xl font-bold">{allClass?.instructor_name}</p>
+                                    <p className='text-sm font-bold link-hover'>{allClass?.instructor_email}</p>
 
-                                    <h2 className="card-title text-xl font-semibold">{allClass?.class_name}</h2>
-                                    <p className='text-lg font-semibold'><span className='font-lg me-2'>Available Seats: </span> {allClass?.available_seats}</p>
+                                    <p className='text-lg font-medium'><span className='font-lg me-2'>Available Seats: </span> {allClass?.available_seats}</p>
 
                                     <p className='text-lg font-semibold'><span className='font-semibold me-2'>Total Enroll: </span> {allClass?.enrolled}</p>
-                                    <p className='text-xl font-semibold'><span className='font-bold text-2xl me-2'>Price: </span> ${allClass?.price}</p>
+                                    <p className='text-2xl font-semibold'><span className='font-bold me-2'>Price: </span> <span className='text-yellow-500'>${allClass?.price}</span></p>
 
                                     {
                                         allClass?.feedback && <div>
@@ -145,7 +145,7 @@ const ManageClasses = () => {
                                  
 
 
-                                    <div className="card-actions flex gap-4 items-center justify-end">
+                                    <div className="card-actions flex gap-4 items-center text-center mt-5 md:mt-0  md:justify-end">
                                         {/* {
                                             status === 'pending' ?
                                                 <>
