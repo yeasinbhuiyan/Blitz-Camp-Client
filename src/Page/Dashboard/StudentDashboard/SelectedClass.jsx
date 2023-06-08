@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import  { useContext } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProviders/AuthProviders';
 import SelectedClassCard from './SelectedClassCard';
+import Swal from 'sweetalert2';
 
 const SelectedClass = () => {
     const { user } = useContext(AuthContext)
@@ -17,8 +18,47 @@ const SelectedClass = () => {
     })
 
 
-    const handleDelete =(id)=>{
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do You Want Delete This Class?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/select-class/delete/${id}`,{
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                    .then(res => {
+                        console.log(res)
+                        if (res.ok) {
+
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Class has been deleted.',
+                                'success'
+                            )
+                        }
+
+
+
+
+                    })
+
+
+
+            }
+        })
         console.log(id)
+
 
     }
 
@@ -80,7 +120,7 @@ const SelectedClass = () => {
                                             selectedClass={selectedClass}
                                             refetch={refetch}
                                             handleDelete={handleDelete}
-                                          
+
                                         />
                                     ))}
                             </tbody>
