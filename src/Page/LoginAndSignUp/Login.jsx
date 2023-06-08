@@ -92,7 +92,7 @@ const Login = () => {
             .then(result => {
                 console.log(result)
                 const logged = result.user
-                const userInfo = { name: logged.displayName, email: logged.email, status: 'student' }
+                const userInfo = { name: logged.displayName, email: logged.email,image: logged.photoURL , status: 'student' }
                 fetch('http://localhost:5000/users', {
                     method: 'PUT',
                     headers: {

@@ -67,7 +67,8 @@ const SignUp = () => {
                 userName(name, img)
 
                     .then(() => {
-                        const userInfo = { name: name, email: email, status: 'student' }
+                        const userInfo = { name: name, email: email, image: img , status: 'student'  }
+                       
                         fetch('http://localhost:5000/users', {
                             method: 'PUT',
                             headers: {
