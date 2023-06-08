@@ -16,12 +16,12 @@ const ManageClasses = () => {
     const handleApprove = (classDetails) => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "Do You Approve This Class?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -62,24 +62,48 @@ const ManageClasses = () => {
             showCancelButton: true,
             confirmButtonText: 'Submit',
             showLoaderOnConfirm: true,
-            preConfirm: (login) => {
-                return fetch(`//api.github.com/users/${login}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(response.statusText)
-                        }
-                        return response.json()
-                    })
-                    .catch(error => {
-                        Swal.showValidationMessage(
-                            `Request failed: ${error}`
-                        )
-                    })
+            preConfirm: () => {
+                // return fetch(`//api.github.com/users/${login}`)
+                //     .then(response => {
+                //         if (!response.ok) {
+                //             throw new Error(response.statusText)
+                //         }
+                //         return response.json()
+                //     })
+                //     .catch(error => {
+                //         Swal.showValidationMessage(
+                //             `Request failed: ${error}`
+                //         )
+                //     })
             },
             allowOutsideClick: () => !Swal.isLoading()
         }).then((result) => {
-            if (result.isConfirmed) {
-                console.log('ashcheeee')
+            if (result.value) {
+
+                const feedback = { feedback: result.value }
+                console.log(feedback)
+
+                fetch(`http://localhost:5000/user/admin/denied/${classDetails._id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(feedback)
+
+
+                })
+                    .then(data => {
+                        console.log(data)
+                        if (data.ok) {
+                            refetch()
+                            Swal.fire(
+                                'Approved!',
+                                'Instructor Class Approved',
+                                'success'
+                            )
+                        }
+
+                    })
 
             }
         })
@@ -111,27 +135,14 @@ const ManageClasses = () => {
                                     <p className='text-xl font-semibold'><span className='font-bold text-2xl me-2'>Price: </span> ${allClass?.price}</p>
 
                                     {
-                                        allClass.feedback && <div className='lg:flex hidden read-more'>
-                                            {
+                                        allClass?.feedback && <div>
 
-                                                !readMore ? <p className='text-sm font-medium w-60 md:w-80'><span className='font-bold me-2'>Feedback:</span>{allClass?.feedback.slice(0, 70)}<span onClick={() => setreadMore(!readMore)} className='text-gray-600 font-bold cursor-pointer'>...read more</span></p> :
-                                                    <p className='text-sm font-medium md:w-full w-60'><span className='font-bold me-2'>Feedback:</span>{allClass?.feedback}<span onClick={() => setreadMore(!readMore)} className='text-gray-600 font-bold cursor-pointer'>...read less</span></p>
+                                            <p className='text-sm font-medium md:w-full w-60'><span className='font-bold me-2'>Feedback:</span>{allClass?.feedback}</p>
 
-
-                                            }
                                         </div>
                                     }
-                                    {allClass.feedback &&
-                                        <div className='lg:hidden md:read-more'>
-                                            {
 
-
-                                                !readMore ? <p className='text-sm font-medium w-60 md:w-80'><span className='font-bold me-2'>Feedback:</span>{allClass.feedback.slice(0, 70)}<span onClick={() => setreadMore(!readMore)} className='text-gray-600 font-bold cursor-pointer'>...read more</span></p> :
-                                                    <p className='text-sm font-medium md:w-96 w-60'><span className='font-bold me-2'>Feedback:</span>{allClass.feedback}<span onClick={() => setreadMore(!readMore)} className='text-gray-600 font-bold cursor-pointer'>...read less</span></p>
-
-
-                                            }
-                                        </div>}
+                                 
 
 
                                     <div className="card-actions flex gap-4 items-center justify-end">
@@ -164,11 +175,11 @@ const ManageClasses = () => {
                                                     <>
 
                                                         <div>
-                                                            <button onClick={() => handleApprove(allClass)} className='btn font-semibold bg-green-500 hover:bg-green-500 btn-xs flex items-center'><FcApprove></FcApprove> Approve</button>
+                                                            <button onClick={() => handleApprove(allClass)} className='btn font-semibold bg-green-500 hover:bg-green-500 btn-xs flex items-center gap-2'><FcApprove></FcApprove> Approve</button>
                                                         </div>
 
                                                         <div>
-                                                            <button onClick={() => handleDenied(allClass)} className='btn font-semibold bg-red-500 hover:bg-red-500 btn-xs flex items-center'><RxCrossCircled></RxCrossCircled> Denied</button>
+                                                            <button onClick={() => handleDenied(allClass)} className='btn font-semibold bg-red-500 gap-2 hover:bg-red-500 btn-xs flex items-center'><RxCrossCircled></RxCrossCircled> Denied</button>
                                                         </div>
                                                     </>
 
