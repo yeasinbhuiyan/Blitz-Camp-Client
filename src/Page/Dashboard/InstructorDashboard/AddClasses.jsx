@@ -7,8 +7,8 @@ import { AuthContext } from "../../../AuthProviders/AuthProviders";
 const img_hosting_token = import.meta.env.VITE_Image_upload_token
 
 const AddClasses = () => {
-    
-    const {user} = useContext(AuthContext)
+
+    const { user } = useContext(AuthContext)
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -35,11 +35,13 @@ const AddClasses = () => {
 
                     const addedClasses = {
                         class_name,
-                        class_image : classImage,
+                        class_image: classImage,
                         instructor_name,
                         instructor_email,
+                        status: 'pending',
                         available_seats: parseInt(availableSeats),
-                        price: parseFloat(price)
+                        price: parseFloat(price),
+                        enrolled: parseInt(0)
                     }
                     fetch('http://localhost:5000/added-class', {
                         method: 'POST',
@@ -74,7 +76,7 @@ const AddClasses = () => {
                 <h1 className="text-4xl text-center font-semibold mt-10">Add Class Form</h1>
             </div>
             <form onSubmit={handleSubmit}>
-                
+
                 <div className="card-body grid grid-cols-1 md:grid-cols-2  gap-8 p-10">
                     <div className="form-control">
                         <label className="label">

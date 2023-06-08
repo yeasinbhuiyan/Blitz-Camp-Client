@@ -1,16 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
-import { useNavigation } from "react-router-dom";
+
 
 
 const ClassesCard = ({ singleClass }) => {
 
     const { class_image, class_name, instructor_name, instructor_email, available_seats, price, enrolled, feedback } = singleClass
-    const l = useNavigation()
-    console.log(l)
-    if (l.state !== "idle") {
-        return <p>Loading............</p>
-    }
+   
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
