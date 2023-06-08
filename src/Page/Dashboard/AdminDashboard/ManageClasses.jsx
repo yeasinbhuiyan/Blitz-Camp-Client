@@ -1,5 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import { RxCrossCircled } from 'react-icons/rx';
+import { FcApprove } from 'react-icons/fc';
+import Swal from 'sweetalert2';
 
 
 const ManageClasses = () => {
@@ -10,6 +13,80 @@ const ManageClasses = () => {
 
     })
 
+    const handleApprove = (classDetails) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/user/admin/${classDetails._id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+
+                })
+                    .then(data => {
+                        // console.log(data)
+                        if (data.ok) {
+                            refetch()
+                            Swal.fire(
+                                'Approved!',
+                                'Instructor Class Approved',
+                                'success'
+                            )
+                        }
+
+                    })
+
+
+            }
+        })
+
+    }
+
+
+    const handleDenied = (classDetails) => {
+        Swal.fire({
+            title: 'Give Feedback Why Denied This Class',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                return fetch(`//api.github.com/users/${login}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(response.statusText)
+                        }
+                        return response.json()
+                    })
+                    .catch(error => {
+                        Swal.showValidationMessage(
+                            `Request failed: ${error}`
+                        )
+                    })
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log('ashcheeee')
+
+            }
+        })
+
+
+
+    }
 
     console.log(allClasses)
     return (
@@ -20,11 +97,14 @@ const ManageClasses = () => {
                     allClasses && allClasses.map(allClass => <>
                         <div className='my-10'>
                             <div className="card md:card-side bg-base-100 shadow-xl">
-                                <figure><img className='w-96 h-64' src={ allClass?.class_image} alt="Movie" /></figure>
+                                <figure><img className='w-96 h-96' src={allClass?.class_image} alt="Movie" /></figure>
 
 
                                 <div className="card-body">
-                                    <h2 className="card-title text-3xl font-semibold">{allClass?.class_name}</h2>
+                                    <h2 className="card-title text-2xl font-semibold">{allClass?.instructor_name}</h2>
+                                    <p className='text-sm font-bold'>{allClass?.instructor_email}</p>
+
+                                    <h2 className="card-title text-xl font-semibold">{allClass?.class_name}</h2>
                                     <p className='text-lg font-semibold'><span className='font-lg me-2'>Available Seats: </span> {allClass?.available_seats}</p>
 
                                     <p className='text-lg font-semibold'><span className='font-semibold me-2'>Total Enroll: </span> {allClass?.enrolled}</p>
@@ -41,7 +121,7 @@ const ManageClasses = () => {
                                             }
                                         </div>
                                     }
-                                    { allClass.feedback &&
+                                    {allClass.feedback &&
                                         <div className='lg:hidden md:read-more'>
                                             {
 
@@ -54,8 +134,8 @@ const ManageClasses = () => {
                                         </div>}
 
 
-                                     {/* <div className="card-actions justify-end">
-                                        {
+                                    <div className="card-actions flex gap-4 items-center justify-end">
+                                        {/* {
                                             status === 'pending' ?
                                                 <>
 
@@ -74,8 +154,26 @@ const ManageClasses = () => {
 
 
                                                     </>
+                                        } */}
+
+
+
+                                        {
+                                            allClass?.status === 'approve' ? <><span className='font-semibold text-sm flex items-center'><FcApprove></FcApprove> Approved</span></> :
+                                                allClass?.status === 'denied' ? <><span className='font-semibold text-sm flex items-center'><RxCrossCircled></RxCrossCircled> Denied</span></> :
+                                                    <>
+
+                                                        <div>
+                                                            <button onClick={() => handleApprove(allClass)} className='btn font-semibold bg-green-500 hover:bg-green-500 btn-xs flex items-center'><FcApprove></FcApprove> Approve</button>
+                                                        </div>
+
+                                                        <div>
+                                                            <button onClick={() => handleDenied(allClass)} className='btn font-semibold bg-red-500 hover:bg-red-500 btn-xs flex items-center'><RxCrossCircled></RxCrossCircled> Denied</button>
+                                                        </div>
+                                                    </>
+
                                         }
-                                    </div>  */}
+                                    </div>
 
                                 </div>
                             </div>
