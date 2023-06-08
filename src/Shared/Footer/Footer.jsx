@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <>
             {/* </footer> */}
-            <footer className="footer max-w-screen-xl   p-10 py-20 bg-blue-300">
+            <footer className="footer max-w-screen-xl mx-auto   p-10 py-20 bg-blue-300">
                 <div>
 
 
@@ -46,7 +46,7 @@ const Footer = () => {
                         <input className='p-3 rounded' type="email" name="email" placeholder='Enter Your Email' id="" />
                         <button className='p-4 btn-success rounded-full'>
                             <FaArrowRight></FaArrowRight>
-                            </button>
+                        </button>
                     </div>
                     {/* <hr  className='text-gray'/> */}
                     <div className='gap-4 flex text-2xl mt-5'>
