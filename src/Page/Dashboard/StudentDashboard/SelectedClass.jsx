@@ -32,7 +32,7 @@ const SelectedClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.delete(`http://localhost:5000/select-class/delete/${id}`)
+                axiosSecure.delete(`/select-class/delete/${id}`)
                     .then(data => {
                         console.log(data)
                         if (data.data.acknowledged) {
