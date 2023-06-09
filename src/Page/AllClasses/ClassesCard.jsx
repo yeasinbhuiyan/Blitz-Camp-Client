@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hook/UseAxiosSecure";
 
 
 
 const ClassesCard = ({ singleClass }) => {
     const { user } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure()
 
     const { class_image, class_name, instructor_name, instructor_email, available_seats, price, enrolled, feedback } = singleClass
 
@@ -28,17 +30,11 @@ const ClassesCard = ({ singleClass }) => {
         }
 
         console.log(selectDetails)
-        fetch('http://localhost:5000/select-class', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(selectDetails)
-        })
-            .then(res => res.json())
+        axiosSecure.post('http://localhost:5000/select-class', selectDetails)
+        
             .then(data => {
                 console.log(data)
-                if (data.acknowledged) {
+                if (data.data.acknowledged) {
                     Swal.fire(
                         'Selected!',
                         'Successfully Selected this class',

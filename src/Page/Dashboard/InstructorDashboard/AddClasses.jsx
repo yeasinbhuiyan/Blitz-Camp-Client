@@ -2,12 +2,14 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
+import useAxiosSecure from "../../../Hook/UseAxiosSecure";
 
 
 const img_hosting_token = import.meta.env.VITE_Image_upload_token
 
 const AddClasses = () => {
 
+    const [axiosSecure] = useAxiosSecure()
     const { user } = useContext(AuthContext)
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
     const handleSubmit = (event) => {
@@ -43,16 +45,10 @@ const AddClasses = () => {
                         price: parseFloat(price),
                         enrolled: parseInt(0)
                     }
-                    fetch('http://localhost:5000/added-class', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(addedClasses)
-                    })
+                    axiosSecure.post('/added-class',addedClasses)
                         .then(data => {
                             console.log(data)
-                            if (data.ok) {
+                            if (data.data.insertedId) {
 
                                 Swal.fire({
                                     position: 'top-end',

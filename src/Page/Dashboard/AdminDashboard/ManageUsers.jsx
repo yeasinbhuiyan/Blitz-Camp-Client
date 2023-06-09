@@ -1,23 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import ManageUsersRow from "./ManageUsersRow";
 import Swal from "sweetalert2";
-// import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../Hook/UseAxiosSecure";
+
 
 
 const ManageUsers = () => {
-    // const [allUsers , setAllUsers] = useState([])
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/users')
-    //         .then(res => res.json())
-    //         .then(data => setAllUsers(data))
-
-    // })
+    const [axiosSecure] = useAxiosSecure()
+   
 
 
 
     const { data: allUsers = [], refetch } = useQuery(['allUsers'], async () => {
-        const res = await fetch('http://localhost:5000/users')
-        return res.json()
+        const res = await axiosSecure('/users')
+        return res.data
 
     })
 
@@ -33,30 +29,29 @@ const ManageUsers = () => {
             confirmButtonText: 'Yes i Want'
         }).then((result) => {
             if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
-            method: 'PATCH'
-        })
+                axiosSecure.patch(`/users/admin/${user._id}`)
 
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    refetch()
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: `${user.name} is an Admin Now`,
-                        showConfirmButton: false,
-                        timer: 1500
+
+                    .then(data => {
+                        console.log(data)
+                        if (data.data.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: `${user.name} is an Admin Now`,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+
+                        }
                     })
 
-                }
-            })
+            }
+        })
+
 
     }
-})
-
-
-}
 
 
 
@@ -72,13 +67,11 @@ const ManageUsers = () => {
             confirmButtonText: 'Yes i Want'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-                    method: 'PATCH'
-                })
+              axiosSecure.patch(`/users/instructor/${user._id}`)
 
-                    .then(res => res.json())
+                 
                     .then(data => {
-                        if (data.modifiedCount > 0) {
+                        if (data.data.modifiedCount > 0) {
                             refetch()
                             Swal.fire({
                                 position: 'top-end',
@@ -113,16 +106,11 @@ const ManageUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user/delete/${singleUser._id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                })
+                axiosSecure.delete(`/user/delete/${singleUser._id}`)
 
-                    .then(res => {
-                        console.log(res)
-                        if (res.ok) {
+                    .then(data => {
+                        console.log(data)
+                        if (data.data.acknowledged) {
 
                             refetch()
                             Swal.fire(

@@ -3,15 +3,17 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProviders/AuthProviders';
 import SelectedClassCard from './SelectedClassCard';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hook/UseAxiosSecure';
 
 const SelectedClass = () => {
     const { user } = useContext(AuthContext)
 
-    const { data: selectedClasses, refetch } = useQuery({
+    const [axiosSecure] = useAxiosSecure()
+    const { data: selectedClasses =[] , refetch } = useQuery({
         queryKey: ['selected-class', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/select-class/${user?.email}`)
-            return res.json()
+            const res = await axiosSecure(`/select-class/${user?.email}`)
+            return res.data
 
         }
 
@@ -30,15 +32,10 @@ const SelectedClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/select-class/delete/${id}`,{
-                    method: 'DELETE',
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                })
-                    .then(res => {
-                        console.log(res)
-                        if (res.ok) {
+                axiosSecure.delete(`http://localhost:5000/select-class/delete/${id}`)
+                    .then(data => {
+                        console.log(data)
+                        if (data.data.acknowledged) {
 
                             refetch()
                             Swal.fire(

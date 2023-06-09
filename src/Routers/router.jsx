@@ -11,6 +11,7 @@ import MyClasses from "../Page/Dashboard/InstructorDashboard/MyClasses";
 import ManageUsers from "../Page/Dashboard/AdminDashboard/ManageUsers";
 import ManageClasses from "../Page/Dashboard/AdminDashboard/ManageClasses";
 import SelectedClass from "../Page/Dashboard/StudentDashboard/SelectedClass";
+import Payment from "../Page/Dashboard/StudentDashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: 'selected-classes',
                 element: <SelectedClass></SelectedClass>
+            },
+            {
+                path: 'payment/:id',
+                element: <Payment></Payment>
             },
 
 

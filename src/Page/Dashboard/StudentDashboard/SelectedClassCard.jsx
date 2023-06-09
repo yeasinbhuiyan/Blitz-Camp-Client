@@ -1,4 +1,5 @@
 import { FaTrashAlt } from "react-icons/Fa";
+import { Link } from "react-router-dom";
 
 const SelectedClassCard = ({selectedClass, handleDelete}) => {
   
@@ -27,7 +28,7 @@ const SelectedClassCard = ({selectedClass, handleDelete}) => {
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 
-                <button className="btn btn-xs font-semibold bg-yellow-400 hover:bg-yellow-500 bg-opacity-70">Pay!</button>
+                <Link to={`/dashboard/payment/${selectedClass._id}`} className="btn btn-xs font-semibold bg-yellow-400 hover:bg-yellow-500 bg-opacity-70">Pay!</Link>
             </td>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                 <button  onClick={() => handleDelete(selectedClass?._id)} className="btn whitespace-no-wrap  btn-ghost btn-xs bg-opacity-90 hover:bg-red-600   bg-red-500"><FaTrashAlt></FaTrashAlt></button>

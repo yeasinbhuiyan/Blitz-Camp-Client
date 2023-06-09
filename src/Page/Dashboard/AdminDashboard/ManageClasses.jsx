@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
 import { RxCrossCircled } from 'react-icons/rx';
 import { FcApprove } from 'react-icons/fc';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hook/UseAxiosSecure';
 
 
 const ManageClasses = () => {
-    const [readMore, setreadMore] = useState(false)
+    const [axiosSecure] = useAxiosSecure()
     const { data: allClasses = [], refetch } = useQuery(['allClasses'], async () => {
-        const res = await fetch('http://localhost:5000/all-classes')
-        return res.json()
+        const res = await axiosSecure('/all-classes')
+        return res.data
 
     })
 
@@ -25,16 +25,10 @@ const ManageClasses = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/user/admin/${classDetails._id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-
-                })
+                axiosSecure.patch(`/user/admin/approve/${classDetails._id}`)
                     .then(data => {
-                        // console.log(data)
-                        if (data.ok) {
+                        console.log(data)
+                        if (data.data.acknowledged) {
                             refetch()
                             Swal.fire(
                                 'Approved!',
@@ -80,25 +74,18 @@ const ManageClasses = () => {
         }).then((result) => {
             if (result.value) {
 
-                const feedback = { feedback: result.value }
+                const feedback = result.value
                 console.log(feedback)
 
-                fetch(`http://localhost:5000/user/admin/denied/${classDetails._id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(feedback)
-
-
-                })
+                axiosSecure.patch(`/user/admin/denied/${classDetails._id}`, { feedback: feedback })
                     .then(data => {
                         console.log(data)
-                        if (data.ok) {
+
+                        if (data.data.acknowledged) {
                             refetch()
                             Swal.fire(
-                                'Approved!',
-                                'Instructor Class Approved',
+                                'Denied!',
+                                'Instructor Class Denieded',
                                 'success'
                             )
                         }
@@ -112,21 +99,21 @@ const ManageClasses = () => {
 
     }
 
-    console.log(allClasses)
+    // console.log(allClasses)
     return (
         <div>
 
             <div className='grid grid-cols-1 p-10'>
                 {
                     allClasses && allClasses.map(allClass => <>
-                        <div className='my-10'>
+                        <div key={allClass._id} className='my-10'>
                             <div className="card md:card-side bg-base-100 shadow-xl">
                                 <figure><img className='w-96 h-52 md:h-96' src={allClass?.class_image} alt="Movie" /></figure>
 
 
                                 <div className="card-body">
                                     <h1 className="card-title text-3xl font-semibold">{allClass?.class_name}</h1>
-                                     <p className="card-title text-2xl font-bold">{allClass?.instructor_name}</p>
+                                    <p className="card-title text-2xl font-bold">{allClass?.instructor_name}</p>
                                     <p className='text-sm font-bold link-hover'>{allClass?.instructor_email}</p>
 
                                     <p className='text-lg font-medium'><span className='font-lg me-2'>Available Seats: </span> {allClass?.available_seats}</p>
@@ -142,31 +129,10 @@ const ManageClasses = () => {
                                         </div>
                                     }
 
-                                 
+
 
 
                                     <div className="card-actions flex gap-4 items-center text-center mt-5 md:mt-0  md:justify-end">
-                                        {/* {
-                                            status === 'pending' ?
-                                                <>
-
-                                                    <span className='bg-cyan-500 bg-opacity-20  rounded-md p-1 px-2 flex items-center'><MdPendingActions></MdPendingActions> Pending</span>
-                                                </> :
-                                                status === 'approved' ?
-                                                    <>
-                                                        <span className='bg-green-500 bg-opacity-20  rounded-md p-1 px-2 flex items-center'><FcApproval></FcApproval> Approved</span>
-
-                                                    </> :
-
-
-                                                    <>
-
-                                                        <span className='bg-red-500 bg-opacity-20  rounded-md p-1 px-2 flex items-center'><FcDeleteRow className='me-1'></FcDeleteRow> Denied</span>
-
-
-                                                    </>
-                                        } */}
-
 
 
                                         {
