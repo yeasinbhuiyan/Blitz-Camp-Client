@@ -10,53 +10,44 @@ import Swal from 'sweetalert2';
 
 import useStatus from '../../Hook/useStatus';
 
+import { useForm } from "react-hook-form";
 
 
 
 const Login = () => {
-    const {statusRefetch} = useStatus()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-
-
+    const { statusRefetch } = useStatus()
     const { loginAccount, google } = useContext(AuthContext)
 
-
-
     const googelProvider = new GoogleAuthProvider
-
-
-
-
 
 
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from.pathname || '/'
 
-
-
-
-
-
     const [error, setError] = useState('')
 
-    const handleLogIn = (event) => {
-        event.preventDefault()
-
-
+    const onSubmit = (data) => {
+        // console.log(data)
 
 
         setError('')
-        const eventTarget = event.target
-        const email = eventTarget.email.value
-        const password = eventTarget.password.value
+        // const eventTarget = event.target
+        const email = data.email
+        const password = data.password
 
 
         // eslint-disable-next-line no-useless-escape
-        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-            return setError('Please Give Us Your Valid Email')
+        // if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        //     return setError('Please Give Us Your Valid Email')
 
-        }
+        // }
+
+
+
+
         loginAccount(email, password)
 
 
@@ -64,7 +55,8 @@ const Login = () => {
 
             .then(result => {
                 const logged = result.user
-                eventTarget.reset()
+                reset()
+                
                 console.log(logged)
                 navigate(from)
                 // console.log(from)
@@ -77,13 +69,16 @@ const Login = () => {
 
 
     }
+
+
+
     const handleGoogleLogin = () => {
         google(googelProvider)
 
             .then(result => {
                 console.log(result)
                 const logged = result.user
-                const userInfo = { name: logged.displayName, email: logged.email,image: logged.photoURL , status: 'student' }
+                const userInfo = { name: logged.displayName, email: logged.email, image: logged.photoURL, status: 'student' }
                 fetch('http://localhost:5000/users', {
                     method: 'PUT',
                     headers: {
@@ -94,7 +89,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                       
+
                         statusRefetch()
                         Swal.fire({
                             position: 'top-end',
@@ -105,7 +100,7 @@ const Login = () => {
                         })
 
                         navigate(from)
-                        
+
                     }
 
 
@@ -122,7 +117,7 @@ const Login = () => {
     return (
 
 
-        <form onSubmit={handleLogIn} className="main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
+        <form onSubmit={handleSubmit(onSubmit)} className="main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
             <div className="flex-col">
                 <div className="text-center">
                     <h1 className="text-5xl font-semibold">Please Login</h1>
@@ -133,7 +128,11 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input className="input input-bordered" name='email' type="text" placeholder="email" required />
+                            {/* /^[A-Za-z0-9._%+-]+@gmail\.com$/i */}
+                            <input {...register("email", { required: true , pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} className="input input-bordered" name='email' type="text" placeholder="email" required />
+                            {errors.email && <span className='text-sm mt-3 text-red-600'>Please enter a valid email address</span>}
+
+
                         </div>
 
 
@@ -141,7 +140,10 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input className="input input-bordered" name='password' type="password" placeholder="password" required />
+                            <input {...register("password", { required: true , minLength: 6 , maxLength : 16 ,pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/ })} className="input input-bordered" name='password' type="password" placeholder="password" required />
+                            {/* {errors.password && <span className='text-sm text-red-600'>This field is required</span>} */}
+                            {errors.password && <span className='text-sm mt-3 text-red-600'>Password must be at least 6 characters long and include at least one capital letter and one special characte</span>}
+
 
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -162,8 +164,8 @@ const Login = () => {
                             <div>
 
                                 <button onClick={handleGoogleLogin} className="w-full p-2 items-center border-2 flex hover:bg-cyan-400 text-cyan-400 hover:text-gray-700 border-cyan-300 rounded-full">
-                                     <FaGoogle className='mr-2'></FaGoogle> 
-                                     <small>Login With Google</small></button>
+                                    <FaGoogle className='mr-2'></FaGoogle>
+                                    <small>Login With Google</small></button>
                             </div>
 
                         </div>
