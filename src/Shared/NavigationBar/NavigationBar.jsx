@@ -17,22 +17,21 @@ const NavigationBar = () => {
         logOut()
     }
     const navigationLink = <>
-        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/'>Home</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/'>Home</NavLink></li>
 
-        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/allClasses'>All Classes</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/allInstructors'>All Instructors</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/allClasses'>All Classes</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/allInstructors'>All Instructors</NavLink></li>
 
         {
             user && <>
 
-                <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/dashboard'>Dashboard</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/myToys'>My Toys</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/addToys'>Add a Toys</NavLink></li>
+                <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/dashboard'>Dashboard</NavLink></li>
+
             </>
         }
 
-        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/blogs'>Blogs</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-black'} to='/about'>About</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/blogs'>Blogs</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/about'>About</NavLink></li>
 
 
 

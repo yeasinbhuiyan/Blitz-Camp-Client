@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import  { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import SingleClassesCard from "./SingleClassesCard";
+
 
 
 const InstructorClasses = () => {
@@ -8,7 +9,12 @@ const InstructorClasses = () => {
 
     const location = useLocation()
 
+
+
+
+
     const email = location?.state?.email
+    console.log(email)
     console.log(location)
 
     useEffect(() => {

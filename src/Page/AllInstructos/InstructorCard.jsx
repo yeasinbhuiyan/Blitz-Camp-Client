@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProviders/AuthProviders";
 
 
 const InstructorCard = ({ instructor }) => {
     const [classes, setClasses] = useState([])
+    const {user} = useContext(AuthContext)
     // console.log(instructor)
     useEffect(() => {
 
@@ -15,6 +17,16 @@ const InstructorCard = ({ instructor }) => {
                 // console.log(data)
             })
     }, [instructor.email])
+
+
+    const setEmail = () => {
+        if(!user){
+
+            console.log(instructor.email)
+        }
+        
+
+    }
 
     return (
         <div className="card bg-base-100 w-full rounded-sm shadow-xl">
@@ -34,7 +46,7 @@ const InstructorCard = ({ instructor }) => {
 
                     <ul className="text--500 list-decimal">{classes && classes.map(className => <li className="text-sm ms-4 my-1" key={className._id}>{className?.class_name},</li>)}</ul></p>
                 <div className="card-actions justify-end">
-                    <Link to={`/instructor/all-class`} state={ {email: instructor?.email}} replace><button className="btn btn-success">See Classes</button></Link>
+                    <Link to={`/instructor/all-class`} state={{ email: instructor?.email }} ><button className="btn btn-success">See Classes</button></Link>
                 </div>
             </div>
         </div>
