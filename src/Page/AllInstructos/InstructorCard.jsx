@@ -10,9 +10,9 @@ const InstructorCard = ({ instructor }) => {
         fetch(`http://localhost:5000/instructor/classes/${instructor.email}`)
             .then(res => res.json())
             .then(data => {
-
-                setClasses(data)
-                console.log(data)
+                const classesFilter = data.filter(df => df.status === 'approve')
+                setClasses(classesFilter)
+                // console.log(data)
             })
     }, [instructor.email])
 
@@ -26,7 +26,7 @@ const InstructorCard = ({ instructor }) => {
 
                 <p className="font-semibold text-xl">Email : {instructor?.email}</p>
                 <p className="font-semibold text-xl">Total Class : {classes?.length}</p>
-                <p className="font-semibold text-xl"><span className="font-bold">Classes Name</span>
+                <p className="font-semibold text-xl"><span className="font-bold">Class Names</span>
 
 
                     <hr className="w-1/3  ms-3 text-black" />
@@ -34,7 +34,7 @@ const InstructorCard = ({ instructor }) => {
 
                     <ul className="text--500 list-decimal">{classes && classes.map(className => <li className="text-sm ms-4 my-1" key={className._id}>{className?.class_name},</li>)}</ul></p>
                 <div className="card-actions justify-end">
-                    <Link to={`/instructor/all-class/${instructor?._id}`} state={ {email: instructor?.email}}><button className="btn btn-success">See Classes</button></Link>
+                    <Link to={`/instructor/all-class`} state={ {email: instructor?.email}} replace><button className="btn btn-success">See Classes</button></Link>
                 </div>
             </div>
         </div>

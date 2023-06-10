@@ -40,9 +40,10 @@ const router = createBrowserRouter([
                 path: '/allInstructors',
                 element: <AllInstructors></AllInstructors>
 
-            }, {
-                path: '/instructor/all-classes/:id',
-                element: <InstructorClasses></InstructorClasses>
+            },
+            {
+                path: '/instructor/all-class',
+                element: <PrivateRoute> <InstructorClasses></InstructorClasses></PrivateRoute>
             }
         ]
     },

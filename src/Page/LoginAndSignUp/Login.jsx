@@ -61,6 +61,7 @@ const Login = () => {
 
 
 
+   
 
 
         loginAccount(email, password)
@@ -73,6 +74,7 @@ const Login = () => {
                 eventTarget.reset()
                 console.log(logged)
                 navigate(from)
+                // console.log(from)
             })
 
             .catch((error) => {
@@ -114,7 +116,8 @@ const Login = () => {
                         })
 
                         navigate(from)
-
+                        
+                       
 
 
                     }

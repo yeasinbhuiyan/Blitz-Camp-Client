@@ -18,9 +18,6 @@ const AllInstructors = () => {
                 {
                     instructors && instructors.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)
                 }
-
-
-
             </div>
 
         </div>

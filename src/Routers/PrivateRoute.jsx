@@ -8,9 +8,11 @@ import Swal from 'sweetalert2';
 import Spinner from '../Shared/Spinner/Spinner';
 import { AuthContext } from '../AuthProviders/AuthProviders';
 
+
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
     const location = useLocation()
+    console.log(loading)
     if (loading) {
         return <Spinner></Spinner>
     }
