@@ -17,15 +17,16 @@ const PopularInstructorCard = ({ instructor }) => {
             })
     }, [instructor.email])
     return (
-        <div className="card bg-base-100 w-full rounded-sm shadow-xl">
+        <div className="card bg-base-100 group w-full rounded-sm shadow-xl">
 
-            <figure><img className="h-60 w-full" src={instructor?.image} alt="Shoes" /></figure>
+            <figure><img className="h-80 transition group-hover:scale-110 w-full" src={instructor?.image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{instructor?.name}</h2>
 
 
                 <p className="font-semibold text-xl">Email : {instructor?.email}</p>
-                <p className="font-semibold text-xl">Total Class : {classes}</p>
+                <p className="font-semibold text-xl">Total Student : {classes}</p>
+               
 
 
        

@@ -18,8 +18,8 @@ const PopularClasses = () => {
     }, [])
     return (
         <div>
-           <div className="mt-24">
-           <SectionTitle heading={"Popular Classes"} subHeading={"See Our Class"}></SectionTitle>
+           <div className="mt-24 mb-0">
+           <SectionTitle heading={"Popular Classes"} subHeading={"See Our Top Six Enrolled"}></SectionTitle>
            </div>
             <div className="grid grid-cols-1 py-28 md:grid-cols-2 p-10 gap-8 lg:grid-cols-3 ">
                 {

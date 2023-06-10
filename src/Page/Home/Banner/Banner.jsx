@@ -6,15 +6,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './Banner.css'
 
-import img1 from '/public/img1.jpg'
-import img2 from '/public/img2.jpg'
-import img3 from '/public/img3.jpg'
-import img4 from '/public/img4.jpg'
-import img5 from '/public/img5.jpg'
-import img6 from '/public/img6.jpg'
-import img7 from '/public/img7.jpg'
-import img8 from '/public/img8.jpg'
-import img9 from '/public/img9.jpg'
+import img1 from '/img1.jpg'
+import img2 from '/img2.jpg'
+import img3 from '/img3.jpg'
+import img4 from '/img4.jpg'
+import img5 from '/img5.jpg'
+import img6 from '/img6.jpg'
+import img7 from '/img7.jpg'
+import img8 from '/img8.jpg'
+import img9 from '/img9.jpg'
 
 
 import { Autoplay, Pagination, Navigation } from 'swiper';

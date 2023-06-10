@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import { useContext } from "react";
+import useStatus from "../../Hook/useStatus";
 // import logo from '/logo2.jpeg';
 
 
@@ -11,6 +12,7 @@ import { useContext } from "react";
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext)
+    const { status } = useStatus()
 
 
     const handleLogout = () => {
@@ -24,8 +26,17 @@ const NavigationBar = () => {
 
         {
             user && <>
+                {status === 'admin' ? <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/dashboard/manage-classes'>Dashboard</NavLink></li> :
+                status === 'instructor' ? <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/dashboard/add-classes'>Dashboard</NavLink></li> :
 
-                <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/dashboard'>Dashboard</NavLink></li>
+                 <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/dashboard/selected-classes'>Dashboard</NavLink></li>
+
+
+
+
+                }
+
+                {/* <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/dashboard'>Dashboard</NavLink></li> */}
 
             </>
         }

@@ -1,7 +1,7 @@
-import React from 'react';
+
 
 const PopularClassCard = ({singleClass}) => {
-    const { class_image, class_name, instructor_name, instructor_email, available_seats, price, enrolled, feedback } = singleClass
+    const { class_image, class_name, instructor_name, available_seats, price, enrolled, feedback } = singleClass
     return (
         <div className="card w-full group bg-base-100 rounded shadow-xl">
 

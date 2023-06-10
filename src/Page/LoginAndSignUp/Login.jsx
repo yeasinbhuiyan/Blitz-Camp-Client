@@ -57,13 +57,6 @@ const Login = () => {
             return setError('Please Give Us Your Valid Email')
 
         }
-
-
-
-
-   
-
-
         loginAccount(email, password)
 
 
@@ -84,10 +77,6 @@ const Login = () => {
 
 
     }
-
-
-
-
     const handleGoogleLogin = () => {
         google(googelProvider)
 
@@ -117,9 +106,6 @@ const Login = () => {
 
                         navigate(from)
                         
-                       
-
-
                     }
 
 
@@ -133,11 +119,6 @@ const Login = () => {
                 console.log(error.message)
             })
     }
-
-
-
-
-
     return (
 
 

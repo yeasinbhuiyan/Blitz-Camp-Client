@@ -19,14 +19,14 @@ const InstructorCard = ({ instructor }) => {
     }, [instructor.email])
 
 
-    const setEmail = () => {
-        if(!user){
+    // const setEmail = () => {
+    //     if(!user){
 
-            console.log(instructor.email)
-        }
+    //         console.log(instructor.email)
+    //     }
         
 
-    }
+    // }
 
     return (
         <div className="card bg-base-100 w-full rounded-sm shadow-xl">
