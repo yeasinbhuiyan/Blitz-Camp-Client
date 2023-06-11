@@ -29,9 +29,9 @@ const InstructorCard = ({ instructor }) => {
     // }
 
     return (
-        <div className="card bg-base-100 w-full rounded-sm shadow-xl">
+        <div className="card bg-base-100 w-full group rounded-sm shadow-xl">
 
-            <figure><img className="h-60 w-full" src={instructor?.image} alt="Shoes" /></figure>
+            <figure><img className="h-60 w-full transition group-hover:scale-110" src={instructor?.image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{instructor?.name}</h2>
                 {/* <h2 className="card-title">{instructor.instructor_name}</h2> */}

@@ -49,9 +49,9 @@ const ClassesCard = ({ singleClass }) => {
     }
 
     return (
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100  rounded-sm group shadow-xl">
 
-            <figure><img className="h-60 w-full" src={class_image} alt="Shoes" /></figure>
+            <figure><img className="h-60 w-full transition group-hover:scale-110" src={class_image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{class_name}</h2>
                 <h2 className="card-title">Instructor: {instructor_name}</h2>
