@@ -16,6 +16,8 @@ import Enrolled from "../Page/Dashboard/StudentDashboard/Enrolled/Enrolled";
 import PaymentHistory from "../Page/Dashboard/StudentDashboard/PaymentHistory/PaymentHistory";
 import AllInstructors from "../Page/AllInstructos/AllInstructors";
 import InstructorClasses from "../Page/AllInstructos/InstructorClasses";
+import PrivateAdmin from "./PrivateAdmin";
+import PrivateInstructor from "./PrivateInstructor";
 
 
 const router = createBrowserRouter([
@@ -74,21 +76,22 @@ const router = createBrowserRouter([
             // instructor
             {
                 path: 'add-classes',
-                element: <AddClasses></AddClasses>
+                element: <PrivateInstructor><AddClasses></AddClasses></PrivateInstructor>
             },
             {
                 path: 'my-classes',
-                element: <MyClasses></MyClasses>
+                element: <PrivateInstructor><MyClasses></MyClasses></PrivateInstructor>
             }
 
             // admin
+            
 
             , {
                 path: 'manage-users',
-                element: <ManageUsers></ManageUsers>
+                element: <PrivateAdmin><ManageUsers></ManageUsers></PrivateAdmin>
             }, {
                 path: 'manage-classes',
-                element: <ManageClasses></ManageClasses>
+                element: <PrivateAdmin><ManageClasses></ManageClasses></PrivateAdmin>
             }
         ]
     }

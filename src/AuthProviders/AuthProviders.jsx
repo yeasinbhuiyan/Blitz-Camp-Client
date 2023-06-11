@@ -102,6 +102,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         userName,
         loading,
+        setLoading,
         google,
         github
 

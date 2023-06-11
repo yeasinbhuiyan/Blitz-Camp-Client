@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { motion } from "framer-motion"
 
 const PopularInstructorCard = ({ instructor }) => {
     const [classes, setClasses] = useState([])
@@ -17,22 +17,37 @@ const PopularInstructorCard = ({ instructor }) => {
             })
     }, [instructor.email])
     return (
-        <div className="card bg-base-100 group w-full rounded-sm shadow-xl">
-
-            <figure><img className="h-80 transition group-hover:scale-110 w-full" src={instructor?.image} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title text-2xl">{instructor?.name}</h2>
-
-
-                <p className="font-semibold text-xl">Email : {instructor?.email}</p>
-                <p className="font-semibold text-xl">Total Student : {classes}</p>
-               
+        <div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+        
+              >
 
 
-       
 
+                <div className="card bg-base-100 group w-full rounded-sm shadow-xl">
+
+                <figure><img className="h-80 transition group-hover:scale-110 w-full" src={instructor?.image} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title text-2xl">{instructor?.name}</h2>
+    
+    
+                    <p className="font-semibold text-xl">Email : {instructor?.email}</p>
+                    <p className="font-semibold text-xl">Total Student : {classes}</p>
+                   
+    
+    
+           
+    
+                </div>
             </div>
+            </motion.div>
+        
+        
+        
         </div>
+      
     );
 };
 

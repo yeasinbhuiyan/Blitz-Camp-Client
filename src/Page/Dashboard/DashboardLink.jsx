@@ -1,13 +1,16 @@
 
 import { NavLink } from 'react-router-dom'
-import { BsFingerprint } from 'react-icons/bs'
+
 import { GrUserAdmin } from 'react-icons/gr'
 import { AiFillFolderAdd } from 'react-icons/ai'
 import { BiSelectMultiple } from 'react-icons/Bi'
+import { SiGoogleclassroom } from 'react-icons/si'
+import { RiUserSettingsFill } from 'react-icons/ri'
 import { MdOutlineIncompleteCircle, MdPayment } from 'react-icons/Md'
 
 import useStatus from '../../Hook/useStatus'
-import { FaRegNewspaper } from 'react-icons/Fa'
+import { FaRegNewspaper  } from 'react-icons/Fa'
+// import { FaUsersGear  } from 'react-icons/fa'
 
 const DashboardLink = () => {
     const { status } = useStatus()
@@ -28,7 +31,7 @@ const DashboardLink = () => {
                                 }`
                             }
                         >
-                            <BsFingerprint className='w-5 h-5' />
+                            <SiGoogleclassroom className='w-5 h-5' />
 
                             <span className='mx-4 font-medium'>Manage Classes</span>
                         </NavLink>
@@ -39,7 +42,7 @@ const DashboardLink = () => {
                                 }`
                             }
                         >
-                            <BsFingerprint className='w-5 h-5' />
+                            <RiUserSettingsFill className='w-5 h-5' />
 
                             <span className='mx-4 font-medium'>Manage Users</span>
                         </NavLink>

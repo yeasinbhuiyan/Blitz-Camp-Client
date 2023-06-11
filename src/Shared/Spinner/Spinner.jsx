@@ -1,11 +1,12 @@
-
+import RingLoader from "react-spinners/RingLoader";
 
 const Spinner = () => {
     return (
         <div>
             <div className='flex justify-center items-center h-[calc(100vh-68px)]'>
                 <p className='text-7xl font-thin'></p>
-                <div className='w-10 h-10 border-8 border-dotted rounded-full animate-spin mt-5 border-green-600'></div>
+                <RingLoader color="#365cd7" />
+                {/* <div className='w-10 h-10 border-8 border-dotted rounded-full animate-spin mt-5 border-green-600'></div> */}
                 <p className='text-7xl font-thin'></p>
             </div>
 

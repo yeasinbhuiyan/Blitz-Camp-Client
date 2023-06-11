@@ -72,10 +72,10 @@ const AddClasses = () => {
              <Helmet>
                 <title>Biltz Camp | Add Classes</title>
             </Helmet>
-            <div>
+            <div className="">
                 <h1 className="text-4xl text-center font-semibold mt-10">Add Class Form</h1>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className="border shadow-xl mt-5  rounded py-10 px-10 md:px-20" onSubmit={handleSubmit}>
 
                 <div className="card-body grid grid-cols-1 md:grid-cols-2  gap-8 p-10">
                     <div className="form-control">
@@ -98,7 +98,7 @@ const AddClasses = () => {
                         <label className="label">
                             <span className="label-text">Instructor Name</span>
                         </label>
-                        <input defaultValue={user?.displayName} type="text" name='instructorName' placeholder="Instructor Name" className="input input-bordered" />
+                        <input readOnly defaultValue={user?.displayName} type="text" name='instructorName' placeholder="Instructor Name" className="input input-bordered" />
                     </div>
 
 
@@ -106,7 +106,7 @@ const AddClasses = () => {
                         <label className="label">
                             <span className="label-text"> Instructor Email</span>
                         </label>
-                        <input defaultValue={user?.email} type="email" name='instructorEmail' placeholder="Instructor Email" className="input input-bordered" />
+                        <input readOnly defaultValue={user?.email} type="email" name='instructorEmail' placeholder="Instructor Email" className="input input-bordered" />
                     </div>
 
                     <div className="form-control">

@@ -7,16 +7,18 @@ import { AuthContext } from '../../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2';
 import useStatus from '../../Hook/useStatus';
 import { useForm } from "react-hook-form";
-import { TbFidgetSpinner } from 'react-icons/tb'
+import { ImSpinner9 } from 'react-icons/im'
 import { Helmet } from 'react-helmet-async';
+import './SignUp.css'
 
 
 const img_hosting_token = import.meta.env.VITE_Image_upload_token
 const SignUp = () => {
+
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
 
-    const {loading , setLoading} = useContext(AuthContext)
+    const { loading, setLoading } = useContext(AuthContext)
 
 
     const { statusRefetch } = useStatus()
@@ -38,7 +40,8 @@ const SignUp = () => {
 
     const onSubmit = (data) => {
 
-      
+
+        setLoading(true)
 
         const formData = new FormData()
         formData.append('image', data?.image[0])
@@ -77,8 +80,9 @@ const SignUp = () => {
                                         .then(data => {
 
                                             if (data.modifiedCount || data.upsertedCount) {
-
+                                                reset()
                                                 statusRefetch()
+                                                setLoading(false)
 
                                                 Swal.fire({
                                                     position: 'top-end',
@@ -87,7 +91,7 @@ const SignUp = () => {
                                                     showConfirmButton: false,
                                                     timer: 1500
                                                 })
-                                                reset()
+
                                                 const from = location.state?.from?.pathname || '/'
                                                 navigate(from)
 
@@ -118,20 +122,24 @@ const SignUp = () => {
 
 
 
-      
+
 
 
     }
 
 
 
-  
+
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="hero py-24 banner-register min-h-screen -z-0 bg-base-200">
-             <Helmet>
+       <div className='signUp-banner'>
+            <Helmet>
                 <title>Biltz Camp | Sign Up</title>
             </Helmet>
+       
+       
+       
+       <form onSubmit={handleSubmit(onSubmit)} className="signUp-banner hero py-24 banner-register min-h-screen -z-0 bg-base-200">
             <div className="flex-col p-10 ">
                 <div className="text-center">
                     <h1 className="text-4xl font-semibold">Please Register</h1>
@@ -207,15 +215,16 @@ const SignUp = () => {
 
 
                         <div className="form-control mt-6">
+
                             {/* disabled={!email || !password || !img || !name || passwordError || emailError} */}
-                            <button className="btn btn-success">
+                            <button className="btn btn-success" disabled={loading}>
                                 {loading ? (
-                                    <TbFidgetSpinner className='m-auto animate-spin' size={24} />
+                                    <ImSpinner9 className='m-auto animate-spin' size={24} />
                                 ) : (
                                     'Register'
                                 )}
 
-                                </button>
+                            </button>
                         </div>
                         <p><small>Already have an account? <Link className='font-semibold' to='/login'>Login</Link></small></p>
                         <p className='text-red-400 text-sm'>{error}</p>
@@ -223,7 +232,7 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
-        </form>
+        </form></div>
     );
 };
 

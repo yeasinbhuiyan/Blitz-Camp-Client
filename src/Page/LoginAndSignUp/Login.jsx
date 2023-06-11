@@ -12,10 +12,13 @@ import useStatus from '../../Hook/useStatus';
 
 import { useForm } from "react-hook-form";
 import { Helmet } from 'react-helmet-async';
+import { ImSpinner9 } from 'react-icons/im';
+import './Login.css'
 
 
 
 const Login = () => {
+    const { loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const { statusRefetch } = useStatus()
@@ -27,6 +30,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from.pathname || '/'
+ 
 
     const [error, setError] = useState('')
 
@@ -57,13 +61,22 @@ const Login = () => {
             .then(result => {
                 const logged = result.user
                 reset()
-                
+                setLoading(false)
                 console.log(logged)
-                navigate(from)
+
+
+                if(from === '/instructor/all-class'){
+                    navigate('/allInstructors')
+                }else{
+
+                    navigate(from)
+                }
+             
                 // console.log(from)
             })
 
             .catch((error) => {
+                setLoading(false)
                 console.log(error.message)
                 setError('Password Not Matched')
             })
@@ -74,9 +87,12 @@ const Login = () => {
 
 
     const handleGoogleLogin = () => {
+        setLoading(true)
         google(googelProvider)
 
             .then(result => {
+
+                setLoading(false)
                 console.log(result)
                 const logged = result.user
                 const userInfo = { name: logged.displayName, email: logged.email, image: logged.photoURL, status: 'student' }
@@ -91,6 +107,7 @@ const Login = () => {
                     .then(res => res.json())
                     .then(() => {
 
+
                         statusRefetch()
                         Swal.fire({
                             position: 'top-end',
@@ -100,7 +117,14 @@ const Login = () => {
                             timer: 1500
                         })
 
-                        navigate(from)
+
+                        if(from === '/instructor/all-class'){
+                            navigate('/allInstructors')
+                        }else{
+
+                            navigate(from)
+                        }
+
 
                     }
 
@@ -111,6 +135,7 @@ const Login = () => {
 
 
             .catch((error) => {
+                setLoading(false)
                 setError(error.message)
                 console.log(error.message)
             })
@@ -118,8 +143,8 @@ const Login = () => {
     return (
 
 
-        <form onSubmit={handleSubmit(onSubmit)} className="main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
-             <Helmet>
+        <form  onSubmit={handleSubmit(onSubmit)} className="login-banner main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
+            <Helmet>
                 <title>Biltz Camp | Login</title>
             </Helmet>
             <div className="flex-col">
@@ -133,7 +158,7 @@ const Login = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             {/* /^[A-Za-z0-9._%+-]+@gmail\.com$/i */}
-                            <input {...register("email", { required: true , pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} className="input input-bordered" name='email' type="text" placeholder="email" required />
+                            <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} className="input input-bordered" name='email' type="text" placeholder="email" required />
                             {errors.email && <span className='text-sm mt-3 text-red-600'>Please enter a valid email address</span>}
 
 
@@ -144,7 +169,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input {...register("password", { required: true , minLength: 6 , maxLength : 16 ,pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/ })} className="input input-bordered" name='password' type="password" placeholder="password" required />
+                            <input {...register("password", { required: true, minLength: 6, maxLength: 16, pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/ })} className="input input-bordered" name='password' type="password" placeholder="password" required />
                             {/* {errors.password && <span className='text-sm text-red-600'>This field is required</span>} */}
                             {errors.password && <span className='text-sm mt-3 text-red-600'>Password must be at least 6 characters long and include at least one capital letter and one special characte</span>}
 
@@ -156,7 +181,11 @@ const Login = () => {
 
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-success  text-white">Login</button>
+                            <button disabled={loading} className="btn btn-success  text-white">  {loading ? (
+                                <ImSpinner9 className='m-auto animate-spin' size={24} />
+                            ) : (
+                                'Login'
+                            )}</button>
                         </div>
 
 
