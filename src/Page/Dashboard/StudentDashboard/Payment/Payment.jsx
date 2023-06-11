@@ -6,6 +6,7 @@ import { AuthContext } from '../../../../AuthProviders/AuthProviders';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import useAxiosSecure from '../../../../Hook/UseAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -35,6 +36,9 @@ const Payment = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Biltz Camp | Payment</title>
+            </Helmet>
             {
                 selectClassPay && <Elements stripe={stripePromise}>
                     <CheckOutForm selectClassPay={selectClassPay}></CheckOutForm>

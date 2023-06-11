@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import useStatus from '../../Hook/useStatus';
 
 import { useForm } from "react-hook-form";
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -118,6 +119,9 @@ const Login = () => {
 
 
         <form onSubmit={handleSubmit(onSubmit)} className="main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
+             <Helmet>
+                <title>Biltz Camp | Login</title>
+            </Helmet>
             <div className="flex-col">
                 <div className="text-center">
                     <h1 className="text-5xl font-semibold">Please Login</h1>

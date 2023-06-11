@@ -3,6 +3,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
 import useAxiosSecure from "../../../Hook/UseAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const img_hosting_token = import.meta.env.VITE_Image_upload_token
@@ -68,6 +69,9 @@ const AddClasses = () => {
     }
     return (
         <div>
+             <Helmet>
+                <title>Biltz Camp | Add Classes</title>
+            </Helmet>
             <div>
                 <h1 className="text-4xl text-center font-semibold mt-10">Add Class Form</h1>
             </div>

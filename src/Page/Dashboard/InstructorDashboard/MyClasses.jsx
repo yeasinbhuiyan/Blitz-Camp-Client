@@ -4,6 +4,7 @@ import MyClassesCard from "./MyClassesCard";
 import useAxiosSecure from "../../../Hook/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const MyClasses = () => {
@@ -50,6 +51,9 @@ const MyClasses = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Biltz Camp | My Classes</title>
+            </Helmet>
             <div className="grid grid-cols-1 md:p-10 p-3">
                 {
                     myClasses && myClasses.map(singleClass => <MyClassesCard key={singleClass._id} handleDelete={handleDelete} singleClass={singleClass}></MyClassesCard>)

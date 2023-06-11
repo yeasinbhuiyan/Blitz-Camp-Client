@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import InstructorCard from "./InstructorCard";
+import { Helmet } from "react-helmet-async";
 
 const AllInstructors = () => {
     const [instructors, setInstructors] = useState([])
@@ -14,6 +15,9 @@ const AllInstructors = () => {
     }, [])
     return (
         <div>
+            <Helmet>
+                <title>Biltz Camp | All Instructor</title>
+            </Helmet>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-28 p-10">
                 {
                     instructors && instructors.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)

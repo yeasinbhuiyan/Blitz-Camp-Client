@@ -3,6 +3,7 @@ import { RxCrossCircled } from 'react-icons/rx';
 import { FcApprove } from 'react-icons/fc';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hook/UseAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 
 const ManageClasses = () => {
@@ -102,6 +103,9 @@ const ManageClasses = () => {
     // console.log(allClasses)
     return (
         <div>
+             <Helmet>
+                <title>Biltz Camp | Manage Classes</title>
+            </Helmet>
 
             <div className='grid grid-cols-1 p-10'>
                 {

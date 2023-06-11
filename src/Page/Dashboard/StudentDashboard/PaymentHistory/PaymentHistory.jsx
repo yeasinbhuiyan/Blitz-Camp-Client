@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../../Hook/UseAxiosSecure";
 import { AuthContext } from "../../../../AuthProviders/AuthProviders";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -14,6 +15,9 @@ const PaymentHistory = () => {
     })
     return (
         <div className='container mx-auto px-4 sm:px-8'>
+             <Helmet>
+                <title>Biltz Camp | All Payment History</title>
+            </Helmet>
         <div className='py-8'>
             <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
                 <div className='inline-block min-w-full  shadow rounded-lg overflow-hidden'>

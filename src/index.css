@@ -6,11 +6,11 @@
 
 
 .btn-success{
-  @apply bg-cyan-700 px-2 text-white rounded border hover:border-cyan-200 border-cyan-400 hover:bg-cyan-900
+  @apply bg-cyan-600 px-2 text-white rounded border hover:border-cyan-200 border-cyan-400 hover:bg-cyan-900
 }
 
 
 
 .text-gradient{
-  @apply  text-transparent bg-clip-text bg-gradient-to-r from-blue-700 font-bold to-gray-600
+  @apply  text-transparent bg-clip-text bg-gradient-to-r from-blue-600 font-bold to-gray-500
 }

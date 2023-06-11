@@ -3,11 +3,12 @@ import useAxiosSecure from '../../../../Hook/UseAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../../../AuthProviders/AuthProviders';
 import moment from 'moment/moment';
+import { Helmet } from 'react-helmet-async';
 
 const Enrolled = () => {
     const [axiosSecure] = useAxiosSecure()
     const { user } = useContext(AuthContext)
-    const { data: enroll = [], refetch } = useQuery(['enroll',user?.email], async () => {
+    const { data: enroll = [], refetch } = useQuery(['enroll', user?.email], async () => {
         const res = await axiosSecure(`/enroll/${user?.email}`)
         return res.data
 
@@ -16,6 +17,9 @@ const Enrolled = () => {
     console.log(enroll)
     return (
         <>
+            <Helmet>
+                <title>Biltz Camp | Enroll Details</title>
+            </Helmet>
             {/* <h1>payment Length : {enroll.length}</h1> */}
             {
                 user && <div className='container mx-auto px-4 sm:px-8'>

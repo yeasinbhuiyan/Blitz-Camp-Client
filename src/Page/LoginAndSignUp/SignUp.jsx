@@ -7,12 +7,16 @@ import { AuthContext } from '../../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2';
 import useStatus from '../../Hook/useStatus';
 import { useForm } from "react-hook-form";
+import { TbFidgetSpinner } from 'react-icons/tb'
+import { Helmet } from 'react-helmet-async';
 
 
 const img_hosting_token = import.meta.env.VITE_Image_upload_token
 const SignUp = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
+
+    const {loading , setLoading} = useContext(AuthContext)
 
 
     const { statusRefetch } = useStatus()
@@ -21,20 +25,6 @@ const SignUp = () => {
 
     const { createAccount, userName } = useContext(AuthContext)
     const [error, setError] = useState('')
-
-
-
-
-    // const [name, setName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [img, setImg] = useState('')
-
-
-
-    // const [passwordError, setPasswordError] = useState('')
-    // const [emailError, setEmailError] = useState('')
-
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -47,8 +37,8 @@ const SignUp = () => {
 
 
     const onSubmit = (data) => {
-       
-        // console.log()
+
+      
 
         const formData = new FormData()
         formData.append('image', data?.image[0])
@@ -114,6 +104,7 @@ const SignUp = () => {
 
                         })
                         .catch((error) => {
+                            setLoading(false)
                             console.log(error.message)
                             setError('Please Give Me Valid Email')
                         })
@@ -122,94 +113,25 @@ const SignUp = () => {
 
 
                 }
-            
+
             })
 
 
 
-        // event.preventDefault()
-        // const eventTarget = event.target
-
-        // console.log(location)
-
-
-
-        // if (password.length < 6) {
-        //     setError('At least give me 6 characters')
-        // }
-
-
+      
 
 
     }
 
 
 
-    // const handleName = (event) => {
-    //     const name = event.target.value
-
-    //     setName(name)
-
-
-    // }
-
-    // const handleEmail = (event) => {
-    //     const email = event.target.value
-    //     setEmail(email)
-    //     // /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-
-
-
-    //     // eslint-disable-next-line no-useless-escape
-    //     if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-
-    //         setEmailError('Please Give Me Valid Email')
-    //     }
-    //     else {
-    //         setEmailError('')
-    //     }
-
-    // }
-
-
-
-
-
-
-
-    // const handlePassword = (event) => {
-    //     const password = event.target.value
-    //     setPassword(password)
-
-
-
-    //     if (password.length < 6) {
-    //         setPasswordError(`At Least Give Me Six Character`)
-
-    //     }
-
-    //     // if (!/(?=.*[A-Z])(?=.*?[0-9]).{6}/.test(password)) {
-    //     //     setPasswordError(`Minimum Six characters, 
-    //     //     at least Capital 
-    //     //     letter and one number`)
-    //     // }
-
-    //     else {
-    //         setPasswordError('')
-
-    //     }
-
-    // }
-
-    // const handlePhoto = (event) => {
-
-    //     const photoUrl = event.target.value
-    //     setImg(photoUrl)
-    // }
-
+  
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="hero py-24 banner-register min-h-screen -z-0 bg-base-200">
+             <Helmet>
+                <title>Biltz Camp | Sign Up</title>
+            </Helmet>
             <div className="flex-col p-10 ">
                 <div className="text-center">
                     <h1 className="text-4xl font-semibold">Please Register</h1>
@@ -240,11 +162,7 @@ const SignUp = () => {
                                     required
                                 />
                             </div>
-                            {/* <label className="label">
-                                <span className="label-text">Photo Url</span>
-                            </label>
-                            <input {...register("photo", { required: true })} name="photo" type="photo" placeholder="Your Photo" className="input input-bordered" required />
-                           */}
+
 
                             {errors.email && <span className='text-sm mt-3 text-red-600'>Please Select Your Photo.</span>}
                         </div>
@@ -274,20 +192,30 @@ const SignUp = () => {
 
 
 
-                        {/* <div className="form-control">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input name='confirmPass' type="password" placeholder="Confirm Password" className="input input-bordered" required />
 
-                        </div> */}
+                            <input  {...register('confirmPassword', {
+                                validate: (value) => value === watch('password') || 'Passwords do not match'
+                            })} name='confirmPassword' type="password" placeholder="Confirm Password" className="input input-bordered" required />
+                            {errors.confirmPassword && <p className='text-red-400 text-sm'>{errors.confirmPassword.message}</p>}
+                        </div>
 
 
 
 
                         <div className="form-control mt-6">
                             {/* disabled={!email || !password || !img || !name || passwordError || emailError} */}
-                            <button className="btn btn-success">Register</button>
+                            <button className="btn btn-success">
+                                {loading ? (
+                                    <TbFidgetSpinner className='m-auto animate-spin' size={24} />
+                                ) : (
+                                    'Register'
+                                )}
+
+                                </button>
                         </div>
                         <p><small>Already have an account? <Link className='font-semibold' to='/login'>Login</Link></small></p>
                         <p className='text-red-400 text-sm'>{error}</p>

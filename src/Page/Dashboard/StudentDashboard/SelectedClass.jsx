@@ -4,6 +4,7 @@ import { AuthContext } from '../../../AuthProviders/AuthProviders';
 import SelectedClassCard from './SelectedClassCard';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hook/UseAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const SelectedClass = () => {
     const { user } = useContext(AuthContext)
@@ -63,6 +64,9 @@ const SelectedClass = () => {
 
     return (
         <div className='container mx-auto px-4 sm:px-8'>
+             <Helmet>
+                <title>Biltz Camp | Selected Class</title>
+            </Helmet>
             <div className='py-8'>
                 <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
                     <div className='inline-block min-w-full  shadow rounded-lg overflow-hidden'>
