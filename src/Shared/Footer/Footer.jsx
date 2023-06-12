@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <>
             {/* </footer> */}
-            <footer className="footer max-w-screen-xl mx-auto   p-10 py-20 bg-blue-300">
+            <footer className="footer   max-w-screen-xl  mx-auto  p-10 py-20 bg-blue-300">
                 <div>
 
 

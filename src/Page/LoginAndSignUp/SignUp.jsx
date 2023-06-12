@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet-async';
 import './SignUp.css'
 
 
-const img_hosting_token = import.meta.env.VITE_Image_upload_token
+const img_hosting_token = import.meta.env.VITE_Sign_In_Image_upload_token
 const SignUp = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
@@ -139,7 +139,7 @@ const SignUp = () => {
        
        
        
-       <form onSubmit={handleSubmit(onSubmit)} className="signUp-banner hero py-24 banner-register min-h-screen -z-0 bg-base-200">
+       <form onSubmit={handleSubmit(onSubmit)} className="signUp-banner md:hero py-24 min-h-screen bg-base-200">
             <div className="flex-col p-10 ">
                 <div className="text-center">
                     <h1 className="text-4xl font-semibold">Please Register</h1>

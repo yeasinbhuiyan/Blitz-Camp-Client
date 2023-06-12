@@ -19,12 +19,14 @@ import InstructorClasses from "../Page/AllInstructos/InstructorClasses";
 import PrivateAdmin from "./PrivateAdmin";
 import PrivateInstructor from "./PrivateInstructor";
 import About from "../Page/About/About";
+import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
     {
         path: 'dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             // student 
             {
