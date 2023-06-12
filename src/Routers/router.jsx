@@ -18,6 +18,7 @@ import AllInstructors from "../Page/AllInstructos/AllInstructors";
 import InstructorClasses from "../Page/AllInstructos/InstructorClasses";
 import PrivateAdmin from "./PrivateAdmin";
 import PrivateInstructor from "./PrivateInstructor";
+import About from "../Page/About/About";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,9 @@ const router = createBrowserRouter([
             {
                 path: '/instructor/all-class',
                 element: <PrivateRoute> <InstructorClasses></InstructorClasses></PrivateRoute>
+            },{
+                path: '/about',
+                element: <About></About>
             }
         ]
     },

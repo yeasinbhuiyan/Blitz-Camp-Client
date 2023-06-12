@@ -39,7 +39,7 @@ const NavigationBar = () => {
             </>
         }
 
-        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/blogs'>Blogs</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/'>Blogs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'text-gradient' : 'text-white'} to='/about'>About</NavLink></li>
 
 
