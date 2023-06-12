@@ -12,7 +12,7 @@ const CheckOutForm = ({ selectClassPay }) => {
 
 
     const { price, _id, class_id, class_name, available_seats, enrolled, instructor_name } = selectClassPay
-    console.log(available_seats, enrolled)
+    console.log(selectClassPay)
 
     const [axiosSecure] = useAxiosSecure()
     const stripe = useStripe();

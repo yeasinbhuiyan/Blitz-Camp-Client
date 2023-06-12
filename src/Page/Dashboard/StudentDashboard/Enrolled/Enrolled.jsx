@@ -14,7 +14,7 @@ const Enrolled = () => {
 
     })
 
-    console.log(enroll)
+    // console.log(enroll,'enroll')
     return (
         <>
             <Helmet>
