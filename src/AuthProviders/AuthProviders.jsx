@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
             
             if (currentUser) {
 
-                axios.post('http://localhost:5000/jwt', { email: currentUser?.email })
+                axios.post('https://blitz-camp-server.vercel.app/jwt', { email: currentUser?.email })
 
                     .then((data) => {
                         console.log(data)

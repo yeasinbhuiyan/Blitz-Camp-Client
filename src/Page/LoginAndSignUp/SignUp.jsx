@@ -68,7 +68,7 @@ const SignUp = () => {
 
                                     const userInfo = { name: name, email: email, image: img, status: 'student' }
 
-                                    fetch('http://localhost:5000/users', {
+                                    fetch('https://blitz-camp-server.vercel.app/users', {
                                         method: 'PUT',
                                         headers: {
                                             'content-type': 'application/json'

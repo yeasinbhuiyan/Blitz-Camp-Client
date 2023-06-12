@@ -8,7 +8,7 @@ const PopularInstructor = () => {
     const [popularInstructor, setPopularInstructor] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/popular-instructor')
+        fetch('https://blitz-camp-server.vercel.app/popular-instructor')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

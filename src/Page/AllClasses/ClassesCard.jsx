@@ -34,7 +34,7 @@ const ClassesCard = ({ singleClass }) => {
         }
 
         // console.log(selectDetails)
-        axiosSecure.post('http://localhost:5000/select-class', selectDetails)
+        axiosSecure.post('https://blitz-camp-server.vercel.app/select-class', selectDetails)
 
             .then(data => {
                 // console.log(data)

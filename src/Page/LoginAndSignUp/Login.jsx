@@ -96,7 +96,7 @@ const Login = () => {
                 console.log(result)
                 const logged = result.user
                 const userInfo = { name: logged.displayName, email: logged.email, image: logged.photoURL, status: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://blitz-camp-server.vercel.app/users', {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -196,7 +196,7 @@ const Login = () => {
                         <div className=' mb-3 '>
                             <div>
 
-                                <button onClick={handleGoogleLogin} className="w-full p-2 items-center border-2 flex hover:bg-cyan-400 text-cyan-400 hover:text-gray-700 border-cyan-300 rounded-full">
+                                <button onClick={handleGoogleLogin} className="w-full p-2 items-center border-2 flex hover:bg-cyan-700 text-cyan-600 hover:text-white border-cyan-300 rounded-md">
                                     <FaGoogle className='mr-2'></FaGoogle>
                                     <small>Login With Google</small></button>
                             </div>

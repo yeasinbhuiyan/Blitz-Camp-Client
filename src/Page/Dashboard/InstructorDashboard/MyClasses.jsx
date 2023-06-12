@@ -33,6 +33,7 @@ const MyClasses = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/instructor-class/delete/${id}`)
                     .then(data => {
+                        console.log(data)
                         if (data.data.acknowledged) {
                             refetch()
                             Swal.fire(

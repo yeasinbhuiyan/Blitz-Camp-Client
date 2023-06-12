@@ -7,7 +7,7 @@ const AllInstructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
 
-        fetch('http://localhost:5000/allInstructors')
+        fetch('https://blitz-camp-server.vercel.app/allInstructors')
             .then(res => res.json())
             .then(data => {
                 const instructorFilter = data.filter(df => df.status === 'instructor')

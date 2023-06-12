@@ -1,19 +1,26 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
 import useAxiosSecure from "../../../Hook/UseAxiosSecure";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
+import { ImSpinner9 } from "react-icons/im";
+import { FaHome } from "react-icons/Fa";
 
 
 const img_hosting_token = import.meta.env.VITE_Image_upload_token
 
 const AddClasses = () => {
+    const navigate = useNavigate()
 
     const [axiosSecure] = useAxiosSecure()
+    const [loading, setLoading] = useState(false)
     const { user } = useContext(AuthContext)
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
     const handleSubmit = (event) => {
+        setLoading(true)
+
         event.preventDefault()
         const form = event.target
         const class_name = form.className.value
@@ -32,6 +39,7 @@ const AddClasses = () => {
         })
             .then(res => res.json())
             .then(imgResponse => {
+                console.log('submit hoise')
                 if (imgResponse.success) {
                     const classImage = imgResponse.data.display_url
                     console.log(classImage)
@@ -46,11 +54,14 @@ const AddClasses = () => {
                         price: parseFloat(price),
                         enrolled: parseInt(0)
                     }
-                    axiosSecure.post('/added-class',addedClasses)
+                    axiosSecure.post('/added-class', addedClasses)
                         .then(data => {
                             console.log(data)
                             if (data.data.insertedId) {
 
+
+                                event.target.reset()
+                                setLoading(false)
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
@@ -58,18 +69,23 @@ const AddClasses = () => {
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
+                                navigate('/dashboard/my-classes')
                             }
+                            setLoading(false)
                         })
 
 
                 }
+                setLoading(false)
                 console.log(imgResponse)
             })
+
+        
 
     }
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>Biltz Camp | Add Classes</title>
             </Helmet>
             <div className="">
@@ -128,7 +144,8 @@ const AddClasses = () => {
 
                 <div className="form-control mt-6 px-10">
 
-                    <input className="btn btn-success" type="submit" value="Add Classes" />
+
+                    <input disabled={loading} className="btn btn-success" type="submit" value="Add Classes" />
                 </div>
             </form>
         </div>

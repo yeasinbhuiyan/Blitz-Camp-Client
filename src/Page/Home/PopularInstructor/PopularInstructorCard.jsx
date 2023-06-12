@@ -5,7 +5,7 @@ const PopularInstructorCard = ({ instructor }) => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
 
-        fetch(`http://localhost:5000/instructor/classes/${instructor.email}`)
+        fetch(`https://blitz-camp-server.vercel.app/instructor/classes/${instructor.email}`)
             .then(res => res.json())
             .then(data => {
                 const classesFilter = data.filter(df => df.status === 'approve')

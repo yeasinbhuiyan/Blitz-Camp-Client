@@ -13,7 +13,7 @@ const useStatus = () => {
         enabled: !loading,
         queryFn: async () => {
             if (user?.email) {
-                const res = await fetch(`http://localhost:5000/users/${user?.email}`)
+                const res = await fetch(`https://blitz-camp-server.vercel.app/users/${user?.email}`)
                 // console.log(res.json())
                 return res.json()
 
@@ -38,7 +38,7 @@ export default useStatus;
 
 //     console.log(userDetails)
 //     if (userDetails?.email) {
-//         fetch(`http://localhost:5000/users/${userDetails?.email}`)
+//         fetch(`https://blitz-camp-server.vercel.app/users/${userDetails?.email}`)
 //             .then(res => res.json())
 //             .then(data => {
 //                 console.log(data.status)

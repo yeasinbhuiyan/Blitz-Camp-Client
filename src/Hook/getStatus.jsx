@@ -6,7 +6,7 @@ const getStatus = (userDetails) => {
 
     console.log(userDetails)
     if (userDetails?.email) {
-        fetch(`http://localhost:5000/users/${userDetails?.email}`)
+        fetch(`https://blitz-camp-server.vercel.app/users/${userDetails?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data.status)
@@ -51,7 +51,7 @@ export default getStatus;
 //     try {
 //         console.log(email); // Log the email parameter for debugging purposes
 
-//         const response = await fetch(`http://localhost:5000/users/${email}`);
+//         const response = await fetch(`https://blitz-camp-server.vercel.app/users/${email}`);
 //         console.log(response); // Log the response object for debugging purposes
 
 //         const user = await response.json();
@@ -81,7 +81,7 @@ export default getStatus;
 //         queryKey : ['get-status', user?.email],
 //         enabled: !loading,
 //         queryFn : async()=>{
-//             const res = await fetch(`http://localhost:5000/users/${email}`)
+//             const res = await fetch(`https://blitz-camp-server.vercel.app/users/${email}`)
 //             console.log(res)
 //             return res.data.status
 

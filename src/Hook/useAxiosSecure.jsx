@@ -6,7 +6,7 @@ import { AuthContext } from "../AuthProviders/AuthProviders"
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://blitz-camp-server.vercel.app'
 })
 
 const useAxiosSecure = () => {

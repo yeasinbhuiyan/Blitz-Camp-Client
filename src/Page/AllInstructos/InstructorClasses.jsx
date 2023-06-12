@@ -20,7 +20,7 @@ const InstructorClasses = () => {
     useEffect(() => {
 
         if (email) {
-            fetch(`http://localhost:5000/instructor/all-class/${email}`)
+            fetch(`https://blitz-camp-server.vercel.app/instructor/all-class/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     const classesFilter = data.filter(df => df.status === 'approve')

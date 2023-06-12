@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBVzpsAB3Op7DWbiEWc_0UNUT0nWRPIb_Q",
-  authDomain: "biltz-camp.firebaseapp.com",
-  projectId: "biltz-camp",
-  storageBucket: "biltz-camp.appspot.com",
-  messagingSenderId: "78978131216",
-  appId: "1:78978131216:web:949b7894d2628c9a943195"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

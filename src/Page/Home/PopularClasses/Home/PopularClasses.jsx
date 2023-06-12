@@ -7,7 +7,7 @@ const PopularClasses = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/popular-classes')
+        fetch('https://blitz-camp-server.vercel.app/popular-classes')
             .then(res => res.json())
             .then(data => {
                 const approvedClass = data.filter(df => df.status === 'approve')

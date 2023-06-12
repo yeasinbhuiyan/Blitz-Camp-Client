@@ -4,7 +4,8 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxiosSecure from "../../../../Hook/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
+import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
+import './checkOut.css'
 
 const CheckOutForm = ({ selectClassPay }) => {
     const navigate = useNavigate()
@@ -91,7 +92,7 @@ const CheckOutForm = ({ selectClassPay }) => {
             setTransaction(paymentIntent.id)
 
 
-            fetch(`http://localhost:5000/modified-class/${class_id}`, {
+            fetch(`https://blitz-camp-server.vercel.app/modified-class/${class_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -119,7 +120,7 @@ const CheckOutForm = ({ selectClassPay }) => {
                 // extraa 
                 initialClassId: class_id,
 
-                studentName: user.displayName ,
+                studentName: user.displayName,
 
                 status: 'service pending',
                 className: class_name,
@@ -155,12 +156,14 @@ const CheckOutForm = ({ selectClassPay }) => {
 
     return (
         <>
-            <form className='w-2/3 m-8' onSubmit={handleSubmit}>
-                <CardElement
+            <SectionTitle heading={"Payment"}></SectionTitle>
+            <form className='w-full py-10 text-center mx-auto' onSubmit={handleSubmit}>
+                <CardElement className="mx-auto  w-2/3"
                     options={{
                         style: {
                             base: {
                                 fontSize: '16px',
+                                
                                 color: '#424770',
                                 '::placeholder': {
                                     color: '#aab7c4',
@@ -172,23 +175,25 @@ const CheckOutForm = ({ selectClassPay }) => {
                         },
                     }}
                 />
-                <button className='btn-primary mt-8 btn btn-sm' type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className='mt-5 w-2/3 btn btn-success' type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
 
+            <div className="text-sm font-bold w-full text-center">
 
-            {
-                cardError && <p className='text-red-600'>
-                    {cardError}
-                </p>
-            }
-            {
-                transactionId && <p className='text-green-600'>
-                    transaction complete with transaction id : {transactionId}
-                </p>
-            }
+                {
+                    cardError && <p className='text-red-600 text-center'>
+                        {cardError}
+                    </p>
+                }
+                {
+                    transactionId && <p className='text-green-600 text-center'>
+                        transaction complete with transaction id : {transactionId}
+                    </p>
+                }
 
+            </div>
 
 
         </>
