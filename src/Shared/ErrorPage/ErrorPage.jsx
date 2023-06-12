@@ -7,8 +7,8 @@ const ErrorPage = () => {
 
         <div className='w-full text-center  mx-auto'>
 
-            <img className='max-h-screen w-full' src={errorBanner} alt="" />
-            <Link to='/'> <button className=' btn btn-success absolute top-0.5'>Go Back</button></Link>
+            <img className='max-h-screen min-h-screen w-full' src={errorBanner} alt="" />
+            <Link to='/'> <button className=' btn btn-success absolute bottom-5'>Go Back</button></Link>
         </div>
 
     </div>
