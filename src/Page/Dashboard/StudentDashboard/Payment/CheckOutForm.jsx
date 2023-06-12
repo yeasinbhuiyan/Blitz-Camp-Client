@@ -158,6 +158,7 @@ const CheckOutForm = ({ selectClassPay }) => {
         <>
             <SectionTitle heading={"Payment"}></SectionTitle>
             <form className='w-full py-10 text-center mx-auto' onSubmit={handleSubmit}>
+                <h1 className="font-semibold my-5 text-xl">Price : <span className="text-cyan-500">${price}</span></h1>
                 <CardElement className="mx-auto  w-2/3"
                     options={{
                         style: {
