@@ -37,7 +37,7 @@ const Payment = () => {
     return (
         <div>
              <Helmet>
-                <title>Biltz Camp | Payment</title>
+                <title>Blitz Camp | Payment</title>
             </Helmet>
             {
                 selectClassPay && <Elements stripe={stripePromise}>

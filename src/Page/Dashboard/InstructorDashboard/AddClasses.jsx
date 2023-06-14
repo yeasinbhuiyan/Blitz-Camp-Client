@@ -86,7 +86,7 @@ const AddClasses = () => {
     return (
         <div>
             <Helmet>
-                <title>Biltz Camp | Add Classes</title>
+                <title>Blitz Camp | Add Classes</title>
             </Helmet>
             <div className="">
                 <h1 className="text-4xl text-center font-semibold mt-10">Add Class Form</h1>

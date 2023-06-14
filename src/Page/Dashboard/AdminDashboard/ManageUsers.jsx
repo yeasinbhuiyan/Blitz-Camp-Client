@@ -145,7 +145,7 @@ const ManageUsers = () => {
     return (
         <div className='container mx-auto px-4 sm:px-8'>
              <Helmet>
-                <title>Biltz Camp | Manage Users</title>
+                <title>Blitz Camp | Manage Users</title>
             </Helmet>
             <div className='py-8'>
                 <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>

@@ -134,7 +134,7 @@ const SignUp = () => {
     return (
        <div className='signUp-banner'>
             <Helmet>
-                <title>Biltz Camp | Sign Up</title>
+                <title>Blitz Camp | Sign Up</title>
             </Helmet>
        
        

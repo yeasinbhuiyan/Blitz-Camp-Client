@@ -20,7 +20,7 @@ const AllClasses = () => {
     return (
         <div>
             <Helmet>
-                <title>Biltz Camp | All Classes</title>
+                <title>Blitz Camp | All Classes</title>
             </Helmet>
             <div>
                 

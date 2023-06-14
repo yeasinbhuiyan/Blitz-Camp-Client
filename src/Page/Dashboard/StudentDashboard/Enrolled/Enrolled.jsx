@@ -18,7 +18,7 @@ const Enrolled = () => {
     return (
         <>
             <Helmet>
-                <title>Biltz Camp | Enroll Details</title>
+                <title>Blitz Camp | Enroll Details</title>
             </Helmet>
             {/* <h1>payment Length : {enroll.length}</h1> */}
             {

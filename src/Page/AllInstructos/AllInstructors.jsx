@@ -17,7 +17,7 @@ const AllInstructors = () => {
     return (
         <div>
             <Helmet>
-                <title>Biltz Camp | All Instructor</title>
+                <title>Blitz Camp | All Instructor</title>
             </Helmet>
             <SectionTitle subHeading={""} heading={"Our All Instructor"}></SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-28 p-10">

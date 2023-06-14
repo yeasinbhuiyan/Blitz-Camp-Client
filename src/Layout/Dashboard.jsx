@@ -8,7 +8,7 @@ const Dashboard = () => {
     return (
         <div className='relative min-h-screen md:flex'>
              <Helmet>
-                <title>Biltz Camp | Dashboard</title>
+                <title>Blitz Camp | Dashboard</title>
             </Helmet>
             <Sidebar></Sidebar>
             <div className='flex-1  md:ml-64'>

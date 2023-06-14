@@ -50,7 +50,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -72,7 +72,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -95,7 +95,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -116,7 +116,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -137,7 +137,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -158,7 +158,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -179,7 +179,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -200,7 +200,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
@@ -221,7 +221,7 @@ const Banner = () => {
 
                         <div className="text-white md:space-y-7 md:w-2/3 w-full pl-12">
 
-                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Biltz Camp</span> <br />Summer Sports Adventure</h2>
+                            <h2 className="md:text-5xl text-xl md:mt-0  font-bold"> <br className='md:flex hidden' /><span className='text-cyan-600'><span className='text-white'>Join the</span>  Blitz Camp</span> <br />Summer Sports Adventure</h2>
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>

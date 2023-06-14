@@ -53,7 +53,7 @@ const MyClasses = () => {
     return (
         <div>
              <Helmet>
-                <title>Biltz Camp | My Classes</title>
+                <title>Blitz Camp | My Classes</title>
             </Helmet>
             <div className="grid grid-cols-1 md:p-10 p-3">
                 {

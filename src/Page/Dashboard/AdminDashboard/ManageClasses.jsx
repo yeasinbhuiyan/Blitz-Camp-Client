@@ -104,7 +104,7 @@ const ManageClasses = () => {
     return (
         <div>
              <Helmet>
-                <title>Biltz Camp | Manage Classes</title>
+                <title>Blitz Camp | Manage Classes</title>
             </Helmet>
 
             <div className='grid grid-cols-1 p-10'>

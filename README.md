@@ -18,4 +18,4 @@
 - And admin handles all the users and can approve and deny the uploaded classes and can make any user an admin, instructor and can also delete them.
 
 
-### Live Website Link : https://biltz-camp.web.app/
+### Live Website Link : https://Blitz-camp.web.app/
