@@ -15,7 +15,7 @@
 
 - Then instructors can upload their various sports related classes. However, after uploading it, the status of the class will be pending until the admin approves it, and students will not be able to view this class.
 
-- And admin handles all the users and can approve and deny the uploaded classes and can make any user an admin, instructor and can also delete them...
+- And admin handles all the users and can approve and deny the uploaded classes and can make any user an admin, instructor and can also delete them.
 
 
 ### Live Website Link : https://Biltz-camp.web.app/
