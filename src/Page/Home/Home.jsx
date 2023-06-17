@@ -6,6 +6,7 @@ import PopularInstructor from './PopularInstructor/PopularInstructor';
 import AboutUs from './AboutUs/AboutUs';
 import AskedQuestion from './AskedQuestion/AskedQuestion';
 import ClassGallery from './ClassGallery/ClassGallery';
+import ShareIdeas from './ShareIdeas/ShareIdeas';
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             <ClassGallery></ClassGallery>
             <AskedQuestion></AskedQuestion>
             <AboutUs></AboutUs>
+            <ShareIdeas></ShareIdeas>
             
             
         </div>

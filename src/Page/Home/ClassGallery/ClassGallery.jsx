@@ -19,7 +19,7 @@ const ClassGallery = () => {
         <div>
             <SectionTitle heading={"Class Gallery Collection"}></SectionTitle>
             <Marquee pauseOnClick speed={70}>
-                <div className="flex gap-5 m-10">
+                <div className="flex gap-5 m-10 ">
                     {
                         allClassImg && allClassImg.map(classImg => <Gallery key={classImg._id} classImg={classImg}></Gallery>)
                     }
