@@ -4,6 +4,8 @@ import PopularClasses from './PopularClasses/Home/PopularClasses';
 import Banner from './Banner/Banner';
 import PopularInstructor from './PopularInstructor/PopularInstructor';
 import AboutUs from './AboutUs/AboutUs';
+import AskedQuestion from './AskedQuestion/AskedQuestion';
+import ClassGallery from './ClassGallery/ClassGallery';
 
 const Home = () => {
     return (
@@ -15,7 +17,10 @@ const Home = () => {
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructor></PopularInstructor>
+            <ClassGallery></ClassGallery>
+            <AskedQuestion></AskedQuestion>
             <AboutUs></AboutUs>
+            
             
         </div>
     );
