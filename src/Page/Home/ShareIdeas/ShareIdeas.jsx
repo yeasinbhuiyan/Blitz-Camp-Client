@@ -8,7 +8,7 @@ const ShareIdeas = () => {
     return (
         <div>
             <SectionTitle heading={"Share Ideas and Opinions"}></SectionTitle>
-            <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-2 mb-10">
+            <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-2  my-10">
 
 
                 <div className="card mt-20 w-80 mx-auto">
@@ -19,7 +19,7 @@ const ShareIdeas = () => {
                         <div className="mb-4">
                             <label
                                 htmlFor="name"
-                                className="block text-gray-700 font-bold mb-2"
+                                className="block text-gray-500 font-bold mb-2"
                             >
                                 Name
                             </label>
@@ -39,7 +39,7 @@ const ShareIdeas = () => {
                         <div className="mb-4">
                             <label
                                 htmlFor="email"
-                                className="block text-gray-700  font-bold mb-2"
+                                className="block text-gray-500  font-bold mb-2"
                             >
                                 Email
                             </label>
@@ -59,7 +59,7 @@ const ShareIdeas = () => {
                         <div className="mb-4">
                             <label
                                 htmlFor="message"
-                                className="block text-gray-700 font-bold mb-2"
+                                className="block text-gray-500 font-bold mb-2"
                             >
                                 Message
                             </label>

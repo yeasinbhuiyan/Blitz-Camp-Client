@@ -6,13 +6,14 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
 import './checkOut.css'
+import useStatus from "../../../../Hook/useStatus";
 
 const CheckOutForm = ({ selectClassPay }) => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
 
 
-    const { price, _id, class_id, class_name, available_seats, enrolled, instructor_name } = selectClassPay
+    const { price, _id, class_id, class_name, available_seats, enrolled, instructor_name, instructor_email } = selectClassPay
     console.log(selectClassPay)
 
     const [axiosSecure] = useAxiosSecure()
@@ -108,6 +109,37 @@ const CheckOutForm = ({ selectClassPay }) => {
 
 
 
+            // todo 
+            // total enroll korar jonno api ta banno hoyese but eta kaj korte se na 
+
+            fetch(`http://localhost:5000/instructor/${instructor_email}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+
+                    if (data?.email) {
+                        fetch(`http://localhost:5000/total-enroll/${instructor_email}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify({ totalEnrolled: data?.totalEnrolled || 0 })
+
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                            })
+
+
+
+                    }
+                })
+
+
+
+
+
 
             const payment = {
                 email: user?.email,
@@ -164,7 +196,7 @@ const CheckOutForm = ({ selectClassPay }) => {
                         style: {
                             base: {
                                 fontSize: '16px',
-                                
+
                                 color: '#424770',
                                 '::placeholder': {
                                     color: '#aab7c4',

@@ -14,8 +14,16 @@ const PopularInstructor = () => {
                 console.log(data)
                 const approvedClass = data.filter(df => df.status === 'instructor')
                 const ap = approvedClass.slice(0, 6)
-                console.log(ap)
+
+
                 setPopularInstructor(ap)
+                
+                // const sortedNumbers = [...approvedClass].sort((a, b) => b.totalEnrolled - a.totalEnrolled);
+                // console.log(sortedNumbers)
+                // setPopularInstructor(sortedNumbers)
+
+
+
 
 
             })
