@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
 import './checkOut.css'
-import useStatus from "../../../../Hook/useStatus";
 
 const CheckOutForm = ({ selectClassPay }) => {
     const navigate = useNavigate()
@@ -112,29 +111,29 @@ const CheckOutForm = ({ selectClassPay }) => {
             // todo 
             // total enroll korar jonno api ta banno hoyese but eta kaj korte se na 
 
-            fetch(`http://localhost:5000/instructor/${instructor_email}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
+            // fetch(`http://localhost:5000/instructor/${instructor_email}`)
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         console.log(data)
 
-                    if (data?.email) {
-                        fetch(`http://localhost:5000/total-enroll/${instructor_email}`, {
-                            method: 'PATCH',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify({ totalEnrolled: data?.totalEnrolled || 0 })
+            //         if (data?.email) {
+            //             fetch(`http://localhost:5000/total-enroll/${instructor_email}`, {
+            //                 method: 'PATCH',
+            //                 headers: {
+            //                     'content-type': 'application/json'
+            //                 },
+            //                 body: JSON.stringify({ totalEnrolled: data?.totalEnrolled || 0 })
 
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                            })
+            //             })
+            //                 .then(res => res.json())
+            //                 .then(data => {
+            //                     console.log(data)
+            //                 })
 
 
 
-                    }
-                })
+            //         }
+            //     })
 
 
 
