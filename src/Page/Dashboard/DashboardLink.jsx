@@ -52,9 +52,6 @@ const DashboardLink = () => {
 
                     :
 
-
-
-
                     status === 'instructor' ?
                         <>
 
@@ -85,8 +82,6 @@ const DashboardLink = () => {
 
                         </>
                         :
-
-
 
                         <>
                             {/* selected Classes  */}

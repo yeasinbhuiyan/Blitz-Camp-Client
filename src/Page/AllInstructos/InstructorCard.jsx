@@ -6,7 +6,6 @@ import { AuthContext } from "../../AuthProviders/AuthProviders";
 const InstructorCard = ({ instructor }) => {
     const [classes, setClasses] = useState([])
     const {user} = useContext(AuthContext)
-    // console.log(instructor)
     useEffect(() => {
 
         fetch(`https://blitz-camp-server.vercel.app/instructor/classes/${instructor.email}`)
@@ -14,28 +13,19 @@ const InstructorCard = ({ instructor }) => {
             .then(data => {
                 const classesFilter = data.filter(df => df.status === 'approve')
                 setClasses(classesFilter)
-                // console.log(data)
+                
             })
     }, [instructor.email])
 
 
-    // const setEmail = () => {
-    //     if(!user){
-
-    //         console.log(instructor.email)
-    //     }
-        
-
-    // }
-
+   
     return (
         <div className="card bg-base-100 w-full group rounded-sm shadow-xl">
 
             <figure><img className="h-60 w-full transition group-hover:scale-110" src={instructor?.image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-2xl">{instructor?.name}</h2>
-                {/* <h2 className="card-title">{instructor.instructor_name}</h2> */}
-
+              
                 <p className="font-semibold text-xl">Email : {instructor?.email}</p>
                 <p className="font-semibold text-xl">Total Class : {classes?.length}</p>
                 <p className="font-semibold text-xl"><span className="font-bold">Class Names</span>

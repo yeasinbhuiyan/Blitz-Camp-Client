@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../Hook/UseAxiosSecure";
 import useStatus from "../../Hook/useStatus";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 
 
@@ -12,7 +12,6 @@ const ClassesCard = ({ singleClass }) => {
     const [axiosSecure] = useAxiosSecure()
     const navigate = useNavigate()
     const { status } = useStatus()
-    // console.log(status)
 
     const { class_image, class_name, instructor_name, instructor_email, available_seats, price, enrolled, feedback } = singleClass
 
@@ -21,7 +20,6 @@ const ClassesCard = ({ singleClass }) => {
         if (!user) {
             return navigate('/login')
         }
-        // console.log(singleClass)
         const selectDetails = {
             email: user?.email,
             instructor_name: singleClass.instructor_name,
@@ -33,11 +31,9 @@ const ClassesCard = ({ singleClass }) => {
             available_seats: singleClass.available_seats
         }
 
-        // console.log(selectDetails)
         axiosSecure.post('https://blitz-camp-server.vercel.app/select-class', selectDetails)
 
             .then(data => {
-                // console.log(data)
                 if (data.data.acknowledged) {
                     Swal.fire(
                         'Selected!',

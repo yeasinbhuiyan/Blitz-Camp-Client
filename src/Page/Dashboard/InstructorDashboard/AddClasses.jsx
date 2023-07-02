@@ -80,7 +80,7 @@ const AddClasses = () => {
                 console.log(imgResponse)
             })
 
-        
+
 
     }
     return (

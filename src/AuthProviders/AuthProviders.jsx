@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../../firebase.config";
 import axios from "axios";
-// import getStatus from "../Hook/getStatus";
+
 
 
 
@@ -15,7 +15,7 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    // const [status, setStatus] = useState(null)
+
 
 
 
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             setLoading(false)
-            
+
             if (currentUser) {
 
                 axios.post('https://blitz-camp-server.vercel.app/jwt', { email: currentUser?.email })
@@ -75,10 +75,10 @@ const AuthProvider = ({ children }) => {
 
 
 
-  
 
 
-    
+
+
 
     const userName = (name, img) => {
 
@@ -96,7 +96,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-        
+
         loginAccount,
         createAccount,
         logOut,

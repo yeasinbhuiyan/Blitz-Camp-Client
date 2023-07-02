@@ -2,12 +2,10 @@ import { FaArrowRight } from "react-icons/Fa";
 import { Link } from "react-router-dom";
 import AbouSlider from "./AbouSlider";
 
-
 const AboutUs = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 p-10 md:p-1   gap-10 py-10 items-center mx-auto bg-base-200'>
             <div data-aos="fade-up" className='mx-auto md:px-10  md:py-10'>
-
 
                 <AbouSlider></AbouSlider>
 

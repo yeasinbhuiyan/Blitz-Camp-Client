@@ -79,7 +79,6 @@ const router = createBrowserRouter([
                 element: <PaymentHistory></PaymentHistory>
 
             },
-
             // instructor
             {
                 path: 'add-classes',
@@ -92,7 +91,6 @@ const router = createBrowserRouter([
 
             // admin
             
-
             , {
                 path: 'manage-users',
                 element: <PrivateAdmin><ManageUsers></ManageUsers></PrivateAdmin>

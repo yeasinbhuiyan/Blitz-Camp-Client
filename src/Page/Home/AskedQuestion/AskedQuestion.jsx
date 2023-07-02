@@ -1,6 +1,4 @@
 
-
-
 import Lottie from "lottie-react";
 import animationlottie2 from '../../../assets/61182-ball-sport.json'
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
@@ -60,9 +58,7 @@ const AskedQuestion = () => {
                             <p className='text-sm font-semibold text-gray-800'>The daily schedule at Blitz Camp is carefully structured to provide a balanced mix of academic learning, hands-on activities, and recreational time. Each day typically starts with morning classes or workshops, followed by lunch and afternoon sessions. Afternoons are often dedicated to engaging in sports, outdoor adventures, or group activities. Evenings may include special events, guest speakers, or social activities to foster connections among participants. Rest assured, we prioritize both learning and fun throughout the day.</p>
                         </div>
                     </div>
-                  
-
-
+        
                 </div>
 
                 <div className='w-1/2 mb-10 md:mb-0 mx-auto'>

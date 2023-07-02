@@ -30,7 +30,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from.pathname || '/'
- 
+
 
     const [error, setError] = useState('')
 
@@ -65,13 +65,13 @@ const Login = () => {
                 console.log(logged)
 
 
-                if(from === '/instructor/all-class'){
+                if (from === '/instructor/all-class') {
                     navigate('/allInstructors')
-                }else{
+                } else {
 
                     navigate(from)
                 }
-             
+
                 // console.log(from)
             })
 
@@ -118,9 +118,9 @@ const Login = () => {
                         })
 
 
-                        if(from === '/instructor/all-class'){
+                        if (from === '/instructor/all-class') {
                             navigate('/allInstructors')
-                        }else{
+                        } else {
 
                             navigate(from)
                         }
@@ -143,7 +143,7 @@ const Login = () => {
     return (
 
 
-        <form  onSubmit={handleSubmit(onSubmit)} className="login-banner main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
+        <form onSubmit={handleSubmit(onSubmit)} className="login-banner main-container p-10 py-20 banner-login  md:hero min-h-screen bg-base-200">
             <Helmet>
                 <title>Blitz Camp | Login</title>
             </Helmet>

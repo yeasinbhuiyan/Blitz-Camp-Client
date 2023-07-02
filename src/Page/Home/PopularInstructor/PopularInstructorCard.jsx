@@ -24,8 +24,6 @@ const PopularInstructorCard = ({ instructor }) => {
 
             >
 
-
-
                 <div className="card bg-base-100 group w-full rounded-sm shadow-xl">
 
                     <figure><img className="h-80 transition group-hover:scale-110 w-full" src={instructor?.image} alt="Shoes" /></figure>

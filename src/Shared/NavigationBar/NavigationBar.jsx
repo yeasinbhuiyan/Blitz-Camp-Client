@@ -47,24 +47,24 @@ const NavigationBar = () => {
 
 
 
-// Theme start
-    const [theme,setTheme]=useState(localStorage.getItem('theme')? localStorage.getItem('theme'): 'light')
+    // Theme start
+    const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
 
-    const handleToggle=(e)=>{
-      if(e.target.checked){
-          setTheme('light')
-      }else{
-          setTheme('dark')
-      }
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            setTheme('light')
+        } else {
+            setTheme('dark')
+        }
     }
-    useEffect(()=>{
-      localStorage.setItem('theme', theme)
-      const localTheme=localStorage.getItem('theme')
-      document.querySelector('html').setAttribute('data-theme', localTheme )
-    },[theme])
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+        const localTheme = localStorage.getItem('theme')
+        document.querySelector('html').setAttribute('data-theme', localTheme)
+    }, [theme])
 
 
-    
+
 
     return (
         <div className="navbar fixed z-10  bg-gradient-to-r md:px-5 bg-opacity-30 max-w-screen-xl text-white bg-black">
@@ -81,20 +81,7 @@ const NavigationBar = () => {
 
                 </div>
 
-
-
-
-       
-              
-
-
-
-
-
-
-                <div className="">
-
-              
+                <div>
 
                     <h1 className="font-bold flex items-center w-full"><span className="text-2xl text-gradient flex items-center">  <img src={logo} className="w-6 mr-2" alt="" />  Blitz</span>  <sub className="font-mono md:w-0 w-1 text-sm ml-1"><small>Camp</small></sub></h1>
                 </div>
@@ -105,7 +92,7 @@ const NavigationBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                
+
                 {/* For Dark/Light Mode */}
                 <div className='w-10'>
                     <label className="swap swap-rotate">
@@ -116,7 +103,7 @@ const NavigationBar = () => {
                         />
 
                         {/* sun icon */}
-                        <svg 
+                        <svg
                             className="swap-on fill-current w-8 h-8"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"

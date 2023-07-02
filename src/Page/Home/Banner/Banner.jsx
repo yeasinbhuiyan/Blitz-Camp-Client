@@ -24,7 +24,8 @@ const Banner = () => {
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
 
-    // ToDo 
+    // To Do 
+
     // const onAutoplayTimeLeft = (s, time, progress) => {
     //     progressCircle.current.style.setProperty('--progress', 1 - progress);
     //     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
@@ -46,7 +47,7 @@ const Banner = () => {
 
                 // ToDo
                 // onAutoplayTimeLeft={onAutoplayTimeLeft}
-
+                
                 // modified
                 loop={true}
                 className="mySwiper"
@@ -61,11 +62,6 @@ const Banner = () => {
 
 
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
-
-
-
-
-
 
                         </div>
 
@@ -85,16 +81,10 @@ const Banner = () => {
                             <p className='font-medium md:text-sm text-xs text-gray-300'>Experience the ultimate summer sports adventure at Blitz Camp! Unleash your skills in soccer, basketball, volleyball, swimming, and more. With expert coaches, state-of-the-art facilities, and an unforgettable atmosphere, elevate your game and create lifelong memories. Join us for teamwork, competition, and personal growth. Sign up today</p>
 
 
-
-
-
-
                         </div>
 
                     </div>
                 </SwiperSlide>
-
-
 
                 <SwiperSlide className='relative  w-full'>
                     <img className='rounded-xl' src={img2} alt="" />

@@ -19,8 +19,6 @@ const SignUp = () => {
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
 
     const { loading, setLoading } = useContext(AuthContext)
-
-
     const { statusRefetch } = useStatus()
 
 
@@ -30,11 +28,6 @@ const SignUp = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
-
-
-
-
-
 
 
 
@@ -55,7 +48,6 @@ const SignUp = () => {
                     const name = data.name
                     const email = data.email
                     const password = data.password
-
                     const img = imgResponse.data.display_url
 
                     createAccount(email, password)
@@ -103,9 +95,6 @@ const SignUp = () => {
 
                                 })
 
-
-
-
                         })
                         .catch((error) => {
                             setLoading(false)
@@ -113,17 +102,9 @@ const SignUp = () => {
                             setError('Please Give Me Valid Email')
                         })
 
-
-
-
                 }
 
             })
-
-
-
-
-
 
     }
 
@@ -136,8 +117,6 @@ const SignUp = () => {
             <Helmet>
                 <title>Blitz Camp | Sign Up</title>
             </Helmet>
-       
-       
        
        <form onSubmit={handleSubmit(onSubmit)} className="signUp-banner md:hero py-24 min-h-screen bg-base-200">
             <div className="flex-col p-10 ">

@@ -100,10 +100,9 @@ const ManageClasses = () => {
 
     }
 
-    // console.log(allClasses)
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>Blitz Camp | Manage Classes</title>
             </Helmet>
 
