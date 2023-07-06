@@ -16,7 +16,7 @@ const img_hosting_token = import.meta.env.VITE_Sign_In_Image_upload_token
 const SignUp = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-    const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const { loading, setLoading } = useContext(AuthContext)
     const { statusRefetch } = useStatus()

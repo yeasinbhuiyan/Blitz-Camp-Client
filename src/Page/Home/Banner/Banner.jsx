@@ -24,12 +24,10 @@ const Banner = () => {
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
 
-    // To Do 
-
-    // const onAutoplayTimeLeft = (s, time, progress) => {
-    //     progressCircle.current.style.setProperty('--progress', 1 - progress);
-    //     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    // };
+    const onAutoplayTimeLeft = (s, time, progress) => {
+        progressCircle.current.style.setProperty('--progress', 1 - progress);
+        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    };
     return (
         <>
             <Swiper
@@ -45,11 +43,11 @@ const Banner = () => {
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
 
-                // ToDo
-                // onAutoplayTimeLeft={onAutoplayTimeLeft}
+                onAutoplayTimeLeft={onAutoplayTimeLeft}
                 
+                // ToDo
                 // modified
-                loop={true}
+                // loop={true}
                 className="mySwiper"
             >
                 <SwiperSlide className='relative  w-full'>
